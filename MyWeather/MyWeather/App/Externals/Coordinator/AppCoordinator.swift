@@ -33,7 +33,7 @@ class AppCoordinator: Coordinator {
         }
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
-        //let trendingCoordinator = TrendingCoordinator(navigationController: navigationController)
-        //coordinate(to: trendingCoordinator)
+        let onBoardingCoordinator = OnBoardingCoordinator(navigationController: navigationController)
+        coordinate(to: onBoardingCoordinator)
     }
 }

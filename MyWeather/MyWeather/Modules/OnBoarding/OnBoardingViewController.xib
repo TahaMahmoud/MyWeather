@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Black.ttf">
+            <string>Lato-Black</string>
+        </array>
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingViewController" customModule="MyWeather" customModuleProvider="target">
+            <connections>
+                <outlet property="image" destination="Iv0-5L-BK6" id="dtz-9o-kz3"/>
+                <outlet property="nextBtn" destination="zKx-Py-9wj" id="N3X-lj-m1Y"/>
+                <outlet property="pageControl" destination="Liw-El-U2o" id="lY6-I4-lQl"/>
+                <outlet property="skipBtn" destination="WmK-3E-D6o" id="xSx-hb-3dg"/>
+                <outlet property="titleLabel" destination="FKT-dk-0EX" id="JBF-U0-YBS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Znh-Z5-PhJ">
+                    <rect key="frame" x="140" y="127" width="134.5" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHk-3L-PW8">
+                            <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                            <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="25"/>
+                            <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgh-WF-a3k">
+                            <rect key="frame" x="42" y="0.0" width="92.5" height="30"/>
+                            <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                            <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jvO-C4-6ym"/>
+                    </constraints>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="FH2-cK-UPb">
+                    <rect key="frame" x="132" y="44" width="150" height="78"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="R0c-7W-qFF"/>
+                        <constraint firstAttribute="height" constant="78" id="t5M-7V-emF"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_background_shape" translatesAutoresizingMaskIntoConstraints="NO" id="ke5-7x-nr5">
+                    <rect key="frame" x="38" y="438" width="376" height="282"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="282" id="fIJ-N4-ly2"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_1_image" translatesAutoresizingMaskIntoConstraints="NO" id="Iv0-5L-BK6">
+                    <rect key="frame" x="62" y="350" width="290" height="290"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="290" id="BPp-0q-3cY"/>
+                        <constraint firstAttribute="width" constant="290" id="xlQ-Ti-yQ1"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKx-Py-9wj">
+                    <rect key="frame" x="349" y="820" width="45" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jF0-dt-v3X"/>
+                        <constraint firstAttribute="width" constant="45" id="qDt-A0-euD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="nextPressed:" destination="-1" eventType="touchUpInside" id="2UT-0o-T4J"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-3E-D6o">
+                    <rect key="frame" x="20" y="820" width="45" height="30"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="skipPressed:" destination="-1" eventType="touchUpInside" id="4Og-Gy-sIH"/>
+                    </connections>
+                </button>
+                <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Liw-El-U2o">
+                    <rect key="frame" x="146" y="821" width="122.5" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="soo-BP-fka"/>
+                    </constraints>
+                </pageControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Updated Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-dk-0EX">
+                    <rect key="frame" x="40" y="182" width="334" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="Srt-8w-txB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="30"/>
+                    <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="SunnyColor"/>
+            <constraints>
+                <constraint firstItem="WmK-3E-D6o" firstAttribute="height" secondItem="zKx-Py-9wj" secondAttribute="height" id="1Tc-O2-D1H"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zKx-Py-9wj" secondAttribute="bottom" constant="12" id="2lD-CM-kYZ"/>
+                <constraint firstItem="ke5-7x-nr5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="38" id="3Sq-Fg-43O"/>
+                <constraint firstItem="FH2-cK-UPb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3W3-fz-Aco"/>
+                <constraint firstItem="WmK-3E-D6o" firstAttribute="centerY" secondItem="zKx-Py-9wj" secondAttribute="centerY" id="6DS-Kn-T0W"/>
+                <constraint firstItem="Liw-El-U2o" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7lq-tA-StM"/>
+                <constraint firstItem="Znh-Z5-PhJ" firstAttribute="top" secondItem="FH2-cK-UPb" secondAttribute="bottom" constant="5" id="8eO-Qs-sKB"/>
+                <constraint firstItem="WmK-3E-D6o" firstAttribute="width" secondItem="zKx-Py-9wj" secondAttribute="width" id="9kp-bt-d9L"/>
+                <constraint firstItem="FKT-dk-0EX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="CQx-wR-w8i"/>
+                <constraint firstItem="Iv0-5L-BK6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JlA-wy-9dp"/>
+                <constraint firstItem="WmK-3E-D6o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="MGw-Kh-jb9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zKx-Py-9wj" secondAttribute="trailing" constant="20" id="T1B-Y1-21N"/>
+                <constraint firstItem="Znh-Z5-PhJ" firstAttribute="centerX" secondItem="FH2-cK-UPb" secondAttribute="centerX" id="TDm-9f-VB1"/>
+                <constraint firstItem="FKT-dk-0EX" firstAttribute="top" secondItem="Znh-Z5-PhJ" secondAttribute="bottom" constant="25" id="UYd-ex-nPL"/>
+                <constraint firstItem="zKx-Py-9wj" firstAttribute="top" secondItem="ke5-7x-nr5" secondAttribute="bottom" constant="100" id="Uty-DU-cgW"/>
+                <constraint firstItem="ke5-7x-nr5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="UzO-6k-OLo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FKT-dk-0EX" secondAttribute="trailing" constant="40" id="WOj-mP-If6"/>
+                <constraint firstItem="FKT-dk-0EX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cuo-sm-lxx"/>
+                <constraint firstItem="Iv0-5L-BK6" firstAttribute="bottom" secondItem="ke5-7x-nr5" secondAttribute="bottom" constant="-80" id="qdn-9g-IfF"/>
+                <constraint firstItem="FH2-cK-UPb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="s4Q-J4-XuQ"/>
+                <constraint firstItem="Liw-El-U2o" firstAttribute="centerY" secondItem="zKx-Py-9wj" secondAttribute="centerY" id="wQc-fF-9fO"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="137.94642857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_logo" width="71.5" height="70.5"/>
+        <image name="splash_1_image" width="275.5" height="296.5"/>
+        <image name="splash_background_shape" width="1113" height="561.5"/>
+        <namedColor name="SunnyColor">
+            <color red="0.89803921568627454" green="0.47058823529411764" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,25 +1,75 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Black.ttf">
+            <string>Lato-Black</string>
+        </array>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uof-Nq-O7o">
+                                <rect key="frame" x="159.5" y="433" width="95" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jdW-Jp-owr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="25"/>
+                                <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sU-Xj-d4i">
+                                <rect key="frame" x="159.5" y="463" width="95" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="aF3-v1-7ca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="25"/>
+                                <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo_splash" translatesAutoresizingMaskIntoConstraints="NO" id="RIT-th-sE3">
+                                <rect key="frame" x="87" y="245" width="240" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="178" id="Hcc-Tb-e5x"/>
+                                    <constraint firstAttribute="width" constant="240" id="q7K-5y-IuN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.052418552340000001" green="0.44929397110000002" blue="0.60058414940000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uof-Nq-O7o" firstAttribute="width" secondItem="2sU-Xj-d4i" secondAttribute="width" id="6UE-sn-Xv7"/>
+                            <constraint firstItem="Uof-Nq-O7o" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="K6a-KP-Ef3"/>
+                            <constraint firstItem="2sU-Xj-d4i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Nz9-vL-Xo5"/>
+                            <constraint firstItem="Uof-Nq-O7o" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QHU-1V-mSR"/>
+                            <constraint firstItem="RIT-th-sE3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bAS-4K-A27"/>
+                            <constraint firstItem="Uof-Nq-O7o" firstAttribute="top" secondItem="RIT-th-sE3" secondAttribute="bottom" constant="10" id="j9E-V9-IM7"/>
+                            <constraint firstItem="Uof-Nq-O7o" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xLr-ov-wLS"/>
+                            <constraint firstItem="2sU-Xj-d4i" firstAttribute="top" secondItem="Uof-Nq-O7o" secondAttribute="bottom" id="xYO-Rj-qFn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_logo_splash" width="144.5" height="144.5"/>
+    </resources>
 </document>
