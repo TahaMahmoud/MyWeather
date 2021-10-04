@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 
-
 protocol HandleRequestResponse {
     func handleResponse<T: ResponseDecoder>(_ response: AFDataResponse<Data>, completion: CallResponse<T>)
 }

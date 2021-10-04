@@ -11,7 +11,7 @@ import RxCocoa
 
 class OnBoardingViewController: UIViewController {
 
-    private let pageControlCount = 3
+    private let pageControlPages = 3
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
@@ -27,6 +27,7 @@ class OnBoardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         viewModel.viewDidLoad()
         bindOnBoardingScreen()
         
@@ -35,7 +36,7 @@ class OnBoardingViewController: UIViewController {
 
     func bindOnBoardingScreen() {
         viewModel.onBoardingScreenObservable.subscribe(onNext: { (onBoardingScreen) in
-            self.setupUI(title: onBoardingScreen.title, image: onBoardingScreen.onBoardingImage, screenNo: onBoardingScreen.onBoardingNo, backgroundColor: self.getColor(onBoardingScreenType: onBoardingScreen.onBoardingType))
+            self.setupOnBoardingElements(title: onBoardingScreen.title, image: onBoardingScreen.onBoardingImage, screenNo: onBoardingScreen.onBoardingNo, backgroundColor: self.getColor(type: onBoardingScreen.onBoardingType))
         }).disposed(by: disposeBag)
     }
     
@@ -62,23 +63,15 @@ class OnBoardingViewController: UIViewController {
         viewModel.skipPressed()
     }
     
-    private func setupUI(title: String, image: String, screenNo: Int, backgroundColor: UIColor) {
+    private func setupUI() {
+        self.pageControl.numberOfPages = pageControlPages
+    }
+    
+    private func setupOnBoardingElements(title: String, image: String, screenNo: Int, backgroundColor: UIColor) {
         self.titleLabel.text = title
         self.image.image = UIImage(named: image)
         self.pageControl.currentPage = screenNo - 1
         self.view.backgroundColor = backgroundColor
     }
     
-    private func getColor(onBoardingScreenType: OnBoardingType) -> UIColor {
-        switch onBoardingScreenType {
-        case .sunny:
-            return UIColor(named: "SunnyColor") ?? UIColor.systemOrange
-        case .rainy:
-            return UIColor(named: "RainyColor") ?? UIColor.systemBlue
-        case .fuggy:
-            return UIColor(named: "FuggyColor") ?? UIColor.systemGray
-        default:
-            return UIColor(named: "SunnyColor") ?? UIColor.systemOrange
-        }
-    }
 }

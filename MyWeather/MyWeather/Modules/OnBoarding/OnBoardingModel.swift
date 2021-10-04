@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum OnBoardingType {
+enum WeatherType {
     case sunny
     case rainy
     case fuggy
@@ -18,13 +18,13 @@ struct OnBoardingModel {
     let onBoardingNo: Int
     let title: String
     let onBoardingImage: String
-    let onBoardingType: OnBoardingType
+    let onBoardingType: WeatherType
 
-    init(onBoardingNo: Int, title: String, onBoardingImage: String, onBoardingType: OnBoardingType) {
+    init(onBoardingNo: Int, title: String, onBoardingImage: String, type: WeatherType) {
         self.onBoardingNo = onBoardingNo
         self.title = title
         self.onBoardingImage = onBoardingImage
-        self.onBoardingType = onBoardingType
+        self.onBoardingType = type
     }
     
 }

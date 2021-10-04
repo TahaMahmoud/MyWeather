@@ -25,8 +25,8 @@ class OnBoardingViewModel: OnBoardingViewModelInput, OnBoardingViewModelOutput {
     var onBoardingScreens: [OnBoardingModel] = []
     var selectedScreenNo = 0
 
-    var selectedScreen: OnBoardingModel = OnBoardingModel(onBoardingNo: 0, title: "", onBoardingImage: "", onBoardingType: .sunny)
-    var onBoardingScreenObservable = BehaviorSubject<OnBoardingModel>(value: OnBoardingModel(onBoardingNo: 0, title: "", onBoardingImage: "", onBoardingType: .sunny))
+    var selectedScreen: OnBoardingModel = OnBoardingModel(onBoardingNo: 0, title: "", onBoardingImage: "", type: .sunny)
+    var onBoardingScreenObservable = BehaviorSubject<OnBoardingModel>(value: OnBoardingModel(onBoardingNo: 0, title: "", onBoardingImage: "", type: .sunny))
 
     // let error: Driver<String>
 
@@ -45,9 +45,9 @@ class OnBoardingViewModel: OnBoardingViewModelInput, OnBoardingViewModelOutput {
     }
     
     func fillOnBoardingScreens() {
-        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 1, title: "Get Updated Weather", onBoardingImage: "splash_1_image", onBoardingType: .sunny))
-        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 2, title: "Save Preferred Cities", onBoardingImage: "splash_2_image", onBoardingType: .rainy))
-        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 3, title: "Use Current Location", onBoardingImage: "splash_3_image", onBoardingType: .fuggy))
+        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 1, title: "Get Updated Weather", onBoardingImage: "splash_1_image", type: .sunny))
+        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 2, title: "Save Preferred Cities", onBoardingImage: "splash_2_image", type: .rainy))
+        onBoardingScreens.append(OnBoardingModel(onBoardingNo: 3, title: "Use Current Location", onBoardingImage: "splash_3_image", type: .fuggy))
         
         selectedScreen = getOnBoardingScreen()
     }
@@ -63,7 +63,7 @@ class OnBoardingViewModel: OnBoardingViewModelInput, OnBoardingViewModelOutput {
             onBoardingScreenObservable.onNext(selectedScreen)
         }
         else {
-            skipPressed()
+            coordinator.navigateToHome()
         }
     }
 
@@ -72,7 +72,7 @@ class OnBoardingViewModel: OnBoardingViewModelInput, OnBoardingViewModelOutput {
     }
 
     func skipPressed() {
-        print("Skip Pressed")
+        coordinator.navigateToHome()
     }
 
 }

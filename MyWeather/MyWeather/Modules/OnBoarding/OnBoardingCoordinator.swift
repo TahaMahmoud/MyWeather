@@ -33,7 +33,8 @@ class OnBoardingCoordinator: Coordinator{
 extension OnBoardingCoordinator: OnBoardingCoordinatorProtocol {
     
     func navigateToHome() {
-        print("Navigated To Home")
+        let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+        homeCoordinator.start()
     }
     
 }

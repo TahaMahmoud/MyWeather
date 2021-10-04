@@ -13,7 +13,6 @@ extension UITableView {
         self.register(UINib(nibName: String(describing: Cell.self), bundle: nil), forCellReuseIdentifier: String(describing: Cell.self))
     }
 
-
     func dequeue<Cell: UITableViewCell>() -> Cell{
         let identifier = String(describing: Cell.self)
         

@@ -43,7 +43,6 @@ extension URLRequestBuilder {
         return headers
     }
     
-    
     var defaultParams: Parameters {
         let param = Parameters()
         return param
