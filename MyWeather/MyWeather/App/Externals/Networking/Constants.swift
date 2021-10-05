@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-   static let baseImageURL = "https://image.tmdb.org/t/p/w500/"
+   static let apiKey = "838184cc6ab746d18bc123910210410"
 }

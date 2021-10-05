@@ -20,6 +20,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var currentTempLabel: UILabel!
     @IBOutlet weak var weatherStateLabel: UILabel!
     
+    @IBOutlet weak var daysTableView: UITableView!
+    
     internal var hours: [String] = []
     
     private let disposeBag = DisposeBag()
@@ -28,21 +30,30 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.viewDidLoad()
         setupHoursPickerView()
+        bindHoursPickerView()
+
+        viewModel.viewDidLoad()
+        
+        setupTableView()
+        bindTableView()
+
     }
 
     @IBAction func settingsPressed(_ sender: Any) {
-        
+        viewModel.settingsPressed()
     }
     
     @IBAction func addCityPressed(_ sender: Any) {
-        
+        viewModel.addCityPressed()
     }
 
     private func setupHoursPickerView() {
         hoursPickerView.setValue(UIColor.white, forKeyPath: "textColor")
-
+        hoursPickerView.setValue(UIColor.white, forKeyPath: "textColor")
+    }
+    
+    private func bindHoursPickerView() {
         //#1 bind your data to pickerview
         Observable.just(viewModel.hours)
                 .bind(to: hoursPickerView.rx.itemTitles) { _, item in
@@ -60,7 +71,22 @@ class HomeViewController: UIViewController {
 
         //optional: preselect the second item in pickerview
         hoursPickerView.selectRow(1, inComponent: 0, animated: true)
-
     }
     
+    fileprivate func setupTableView() {
+        daysTableView.registerCellNib(cellClass: DayTableViewCell.self)
+    }
+
+    fileprivate func bindTableView() {
+        viewModel.days
+            .bind(to: daysTableView.rx.items(
+                    cellIdentifier: "DayTableViewCell",
+                    cellType: DayTableViewCell.self)) { row, element, cell in
+                let indexPath = IndexPath(row: row, section: 0)
+                cell.configure(self.viewModel.daysViewModelAtIndexPath(indexPath))
+            }
+            .disposed(by: disposeBag)
+    }
+
 }
+

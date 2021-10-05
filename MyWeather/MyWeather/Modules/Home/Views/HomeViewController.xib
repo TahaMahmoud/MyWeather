@@ -23,6 +23,7 @@
                 <outlet property="cityNameLabel" destination="gwg-oH-DsJ" id="1rk-eL-Kp6"/>
                 <outlet property="currentTempLabel" destination="pP9-8f-Jq0" id="Wex-Le-6wg"/>
                 <outlet property="currentWeatherImageView" destination="zWv-DG-MUz" id="4Ta-fK-e6d"/>
+                <outlet property="daysTableView" destination="q9C-WP-HIM" id="OAO-Hv-Ozo"/>
                 <outlet property="hoursPickerView" destination="Rmw-oC-Otb" id="x3X-FY-Dh1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherStateLabel" destination="3ww-zR-2Zu" id="JaH-GV-Mgi"/>
@@ -71,13 +72,6 @@
                         <constraint firstAttribute="height" constant="150" id="cyN-ND-mSA"/>
                     </constraints>
                 </imageView>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmw-oC-Otb">
-                    <rect key="frame" x="142" y="261" width="130" height="125"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="130" id="IVL-Ru-RrQ"/>
-                        <constraint firstAttribute="height" constant="125" id="XVo-Qj-i3p"/>
-                    </constraints>
-                </pickerView>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-FD-x9q">
                     <rect key="frame" x="177" y="396" width="60.5" height="33"/>
                     <subviews>
@@ -118,10 +112,17 @@
                     <rect key="frame" x="20" y="522" width="374" height="340"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmw-oC-Otb">
+                    <rect key="frame" x="142" y="261" width="130" height="125"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="elq-IW-02r"/>
+                        <constraint firstAttribute="height" constant="125" id="fpu-5c-8z7"/>
+                    </constraints>
+                </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1o-Hj-xu2" customClass="CustomView" customModule="MyWeather" customModuleProvider="target">
                     <rect key="frame" x="142" y="305" width="130" height="37"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="37" id="Lfv-qs-cAx"/>
+                        <constraint firstAttribute="height" constant="37" id="Rd6-Vd-Zmi"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
@@ -141,23 +142,23 @@
             <constraints>
                 <constraint firstItem="zWv-DG-MUz" firstAttribute="top" secondItem="gwg-oH-DsJ" secondAttribute="bottom" constant="20" id="1hA-kK-V52"/>
                 <constraint firstAttribute="bottom" secondItem="QKE-B6-W0j" secondAttribute="bottom" id="2qZ-nb-bDy"/>
-                <constraint firstItem="P1o-Hj-xu2" firstAttribute="leading" secondItem="Rmw-oC-Otb" secondAttribute="leading" id="4C8-QF-6T6"/>
                 <constraint firstAttribute="trailing" secondItem="zkd-Lx-Ujw" secondAttribute="trailing" constant="-30" id="4bt-eg-TGN"/>
+                <constraint firstItem="uvl-FD-x9q" firstAttribute="top" secondItem="Rmw-oC-Otb" secondAttribute="bottom" constant="10" id="9Tu-RN-i6a"/>
                 <constraint firstItem="zkd-Lx-Ujw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="BF6-0l-2rh"/>
-                <constraint firstItem="P1o-Hj-xu2" firstAttribute="trailing" secondItem="Rmw-oC-Otb" secondAttribute="trailing" id="EDa-Q6-LmH"/>
+                <constraint firstItem="Rmw-oC-Otb" firstAttribute="top" secondItem="zWv-DG-MUz" secondAttribute="bottom" constant="15" id="Btd-JD-6D1"/>
                 <constraint firstItem="QKE-B6-W0j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FbR-Wj-s7E"/>
+                <constraint firstItem="P1o-Hj-xu2" firstAttribute="leading" secondItem="Rmw-oC-Otb" secondAttribute="leading" id="LEW-LJ-DRc"/>
                 <constraint firstItem="zkd-Lx-Ujw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-30" id="Pcm-j8-D8o"/>
-                <constraint firstItem="Rmw-oC-Otb" firstAttribute="top" secondItem="zWv-DG-MUz" secondAttribute="bottom" constant="15" id="S6u-T3-PR7"/>
                 <constraint firstItem="Jpf-K4-upt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Shc-j1-iuZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q9C-WP-HIM" secondAttribute="trailing" constant="20" id="U4a-J9-0vD"/>
                 <constraint firstItem="Dmf-Vt-7lo" firstAttribute="height" secondItem="Jpf-K4-upt" secondAttribute="height" id="Y1q-yf-WRI"/>
                 <constraint firstItem="QKE-B6-W0j" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YYc-9l-Yne"/>
                 <constraint firstItem="q9C-WP-HIM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZBq-xL-C8I"/>
+                <constraint firstItem="P1o-Hj-xu2" firstAttribute="trailing" secondItem="Rmw-oC-Otb" secondAttribute="trailing" id="a5P-BV-T1n"/>
                 <constraint firstItem="uvl-FD-x9q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="afs-nR-5ls"/>
                 <constraint firstItem="zkd-Lx-Ujw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="amS-HE-5zn"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Dmf-Vt-7lo" secondAttribute="trailing" constant="20" id="au8-v5-Plz"/>
                 <constraint firstItem="q9C-WP-HIM" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="dNF-fk-093"/>
-                <constraint firstItem="uvl-FD-x9q" firstAttribute="top" secondItem="Rmw-oC-Otb" secondAttribute="bottom" constant="10" id="dsW-Du-FA5"/>
                 <constraint firstItem="3ww-zR-2Zu" firstAttribute="leading" secondItem="Jpf-K4-upt" secondAttribute="leading" id="dwL-fr-k9R"/>
                 <constraint firstItem="QKE-B6-W0j" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" constant="-15" id="eZO-is-Vxc"/>
                 <constraint firstItem="q9C-WP-HIM" firstAttribute="top" secondItem="zkd-Lx-Ujw" secondAttribute="bottom" constant="30" id="jFz-tg-kF4"/>
@@ -169,12 +170,12 @@
                 <constraint firstItem="Dmf-Vt-7lo" firstAttribute="width" secondItem="Jpf-K4-upt" secondAttribute="width" id="pGs-IQ-q0G"/>
                 <constraint firstItem="gwg-oH-DsJ" firstAttribute="centerY" secondItem="Jpf-K4-upt" secondAttribute="centerY" id="paE-02-5Bs"/>
                 <constraint firstItem="gwg-oH-DsJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qAa-kj-aoF"/>
+                <constraint firstItem="Rmw-oC-Otb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qon-In-b5J"/>
                 <constraint firstItem="gwg-oH-DsJ" firstAttribute="height" secondItem="Jpf-K4-upt" secondAttribute="height" multiplier="1.13333" id="rZC-Ph-bLU"/>
                 <constraint firstItem="zWv-DG-MUz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t2Q-pu-qa5"/>
-                <constraint firstItem="Rmw-oC-Otb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t4e-5x-pSj"/>
                 <constraint firstItem="Dmf-Vt-7lo" firstAttribute="centerY" secondItem="Jpf-K4-upt" secondAttribute="centerY" id="usk-FI-gK9"/>
                 <constraint firstItem="3ww-zR-2Zu" firstAttribute="trailing" secondItem="Dmf-Vt-7lo" secondAttribute="trailing" id="wcb-6J-edk"/>
-                <constraint firstItem="P1o-Hj-xu2" firstAttribute="centerY" secondItem="Rmw-oC-Otb" secondAttribute="centerY" id="yCv-tO-2we"/>
+                <constraint firstItem="P1o-Hj-xu2" firstAttribute="centerY" secondItem="Rmw-oC-Otb" secondAttribute="centerY" id="ydY-Ru-yPT"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
         </view>

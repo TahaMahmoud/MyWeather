@@ -29,7 +29,7 @@ protocol URLRequestBuilder: URLRequestConvertible,RequestHandler {
 
 extension URLRequestBuilder {
     var mainURL: URL {
-        return URL(string: "https://api.themoviedb.org/3/")!
+        return URL(string: "http://api.weatherapi.com/v1/")!
     }
     
     var requestURL: URL {
@@ -38,13 +38,14 @@ extension URLRequestBuilder {
     
     var headers: HTTPHeaders {
         var headers = HTTPHeaders()
-        headers.add(HTTPHeader(name: "Authorization", value: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyOGU0Yjc1OGM4ODg3NDRlNTczNmQ2ZmI1MTkyOWYyMSIsInN1YiI6IjVjY2UxZjExMGUwYTI2MmZiYjA0Y2Q2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iSpO81qMhkUYyEMgW9wwKaUletRWjwJXLlcdWHSB6Mk"))
+        // headers.add(HTTPHeader(name: "Authorization", value: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyOGU0Yjc1OGM4ODg3NDRlNTczNmQ2ZmI1MTkyOWYyMSIsInN1YiI6IjVjY2UxZjExMGUwYTI2MmZiYjA0Y2Q2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iSpO81qMhkUYyEMgW9wwKaUletRWjwJXLlcdWHSB6Mk"))
         
         return headers
     }
     
     var defaultParams: Parameters {
-        let param = Parameters()
+        var param = Parameters()
+        //param = ["key": Constants.apiKey, "lang": "en"]
         return param
     }
     
