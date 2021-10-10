@@ -46,6 +46,7 @@
 		04C3D497270B00FC00A876B0 /* DayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04C3D495270B00FC00A876B0 /* DayTableViewCell.xib */; };
 		04C3D4AC270B060E00A876B0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D4AA270B060E00A876B0 /* CustomButton.swift */; };
 		04C3D4AD270B060E00A876B0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D4AB270B060E00A876B0 /* CustomView.swift */; };
+		04C72F0927132620006D05F6 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C72F0827132620006D05F6 /* Typealias.swift */; };
 		04FA4FD8270C3DAA00606300 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA4FD7270C3DAA00606300 /* HomeModel.swift */; };
 		04FA4FDE270C3E7C00606300 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA4FDC270C3E7C00606300 /* HomeInteractor.swift */; };
 		04FA4FDF270C3E7C00606300 /* HomeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA4FDD270C3E7C00606300 /* HomeRequest.swift */; };
@@ -118,6 +119,7 @@
 		04C3D495270B00FC00A876B0 /* DayTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DayTableViewCell.xib; sourceTree = "<group>"; };
 		04C3D4AA270B060E00A876B0 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		04C3D4AB270B060E00A876B0 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		04C72F0827132620006D05F6 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		04FA4FD7270C3DAA00606300 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		04FA4FDC270C3E7C00606300 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		04FA4FDD270C3E7C00606300 /* HomeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRequest.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				0446E732270C8AAF005343D4 /* Date.swift */,
+				04C72F0827132620006D05F6 /* Typealias.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C3D48B270AF83F00A876B0 /* HomeViewModel.swift in Sources */,
+				04C72F0927132620006D05F6 /* Typealias.swift in Sources */,
 				046BB0E12701D3420007E43A /* RequestBuilder.swift in Sources */,
 				04FA4FD8270C3DAA00606300 /* HomeModel.swift in Sources */,
 				046BB1142701EDAE0007E43A /* OnBoardingViewModel.swift in Sources */,

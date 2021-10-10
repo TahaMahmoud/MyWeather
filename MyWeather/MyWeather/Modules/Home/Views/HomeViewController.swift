@@ -30,14 +30,15 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupHoursPickerView()
-        bindHoursPickerView()
-
         viewModel.viewDidLoad()
         
-        setupTableView()
-        bindTableView()
+        setupHoursPickerView()
 
+        setupTableView()
+        
+        bindHoursPickerView()
+        bindTableView()
+        
     }
 
     @IBAction func settingsPressed(_ sender: Any) {
@@ -50,27 +51,28 @@ class HomeViewController: UIViewController {
 
     private func setupHoursPickerView() {
         hoursPickerView.setValue(UIColor.white, forKeyPath: "textColor")
-        hoursPickerView.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
     private func bindHoursPickerView() {
-        //#1 bind your data to pickerview
-        Observable.just(viewModel.hours)
-                .bind(to: hoursPickerView.rx.itemTitles) { _, item in
-                return item
+
+        viewModel.hours.asObservable().subscribe(onDisposed:  { () in
+            self.setupCurrentWeatherUI(data: self.viewModel.hourWeatherAt(self.viewModel.getCurrentHour()))
+        }).disposed(by: disposeBag)
+        
+
+        viewModel.hours
+            .bind(to: hoursPickerView.rx.itemTitles) { _, item in
+                return item.date
         }.disposed(by: disposeBag)
-
-        //#2 handle pickerview selection
-        hoursPickerView.rx.itemSelected.asObservable().subscribe(onNext: {item in
-
-        //item.row gives you the index of the selected item, so do what you need with                  it
-
-        //also here you can call .resignFirstResponder() on whatever element brought up the pickerview (e.g. a button) in order to close the pickerview
-
-                }).disposed(by: disposeBag)
 
         //optional: preselect the second item in pickerview
         hoursPickerView.selectRow(1, inComponent: 0, animated: true)
+
+        
+        hoursPickerView.rx.itemSelected.asObservable().subscribe(onNext: {item in
+            self.setupCurrentWeatherUI(data: self.viewModel.hourWeatherAt(item.row))
+        }).disposed(by: disposeBag)
+
     }
     
     fileprivate func setupTableView() {
@@ -87,6 +89,10 @@ class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
-
+    
+    func setupCurrentWeatherUI(data: HourData) {
+        currentTempLabel.text = "\(data.temp)"
+        weatherStateLabel.text = data.condition
+    }
 }
 

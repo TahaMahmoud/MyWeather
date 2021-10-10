@@ -73,16 +73,16 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-FD-x9q">
-                    <rect key="frame" x="177" y="396" width="60.5" height="33"/>
+                    <rect key="frame" x="165.5" y="396" width="83" height="33"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP9-8f-Jq0">
-                            <rect key="frame" x="0.0" y="0.0" width="30.5" height="33"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP9-8f-Jq0">
+                            <rect key="frame" x="0.0" y="0.0" width="53" height="33"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQx-3V-PEt">
-                            <rect key="frame" x="35.5" y="0.0" width="25" height="23"/>
+                            <rect key="frame" x="58" y="0.0" width="25" height="23"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -96,7 +96,7 @@
                         <constraint firstItem="pP9-8f-Jq0" firstAttribute="top" secondItem="uvl-FD-x9q" secondAttribute="top" id="R3V-cp-NKl"/>
                         <constraint firstAttribute="bottom" secondItem="kQx-3V-PEt" secondAttribute="bottom" constant="10" id="mmS-Nk-6NS"/>
                         <constraint firstAttribute="trailing" secondItem="kQx-3V-PEt" secondAttribute="trailing" id="qck-pT-6LT"/>
-                        <constraint firstAttribute="width" constant="60.5" id="vkf-A4-oU5"/>
+                        <constraint firstAttribute="width" constant="83" id="vkf-A4-oU5"/>
                     </constraints>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAINY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-zR-2Zu">

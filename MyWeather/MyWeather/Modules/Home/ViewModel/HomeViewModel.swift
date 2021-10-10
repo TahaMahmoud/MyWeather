@@ -11,6 +11,9 @@ import RxCocoa
 
 protocol HomeViewModelOutput {
     func daysViewModelAtIndexPath(_ indexPath: IndexPath) -> DayCellViewModel
+    func hourWeatherAt(_ index: Int) -> HourData
+    
+    func getCurrentHour() -> Int
 }
 
 protocol HomeViewModelInput {
@@ -22,10 +25,11 @@ protocol HomeViewModelInput {
 }
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
-    
-    var hours: [String] = []
+        
     var weather: BehaviorRelay<HomeModel> = .init(value: HomeModel(location: nil, current: nil, forecast: nil))
     var days: BehaviorRelay<[DayCellViewModel]> = .init(value: [])
+    
+    var hours:BehaviorRelay<[HourData]> = .init(value: [])
 
     private let coordinator: HomeCoordinator
     let disposeBag = DisposeBag()
@@ -35,7 +39,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     init(homeInteractor:HomeInteractorProtocol = HomeInteractor(),coordinator: HomeCoordinator) {
         self.homeInteractor = homeInteractor
         self.coordinator = coordinator
-        fillHoursData()
+        // fillHoursData()
         getWeather()
         bindWeatherDays()
     }
@@ -51,17 +55,11 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     func settingsPressed() {
         coordinator.navigateToSettings()
     }
-
-    func fillHoursData() {
-        for hour in 1...12 {
-            hours.append("\(hour):00 AM")
-        }
-        
-        for hour in 1...11 {
-            hours.append("\(hour):00 PM")
-        }
+    
+    func hourWeatherAt(_ index: Int) -> (date: String, temp: Double, condition: String) {
+        return hours.value[index]
     }
-        
+
     private func getWeather() {
         homeInteractor.getWeather().subscribe{ (response) in
             self.weather.accept(response)
@@ -73,18 +71,36 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         homeInteractor.getWeather().subscribe { (response) in
             let forecastDays = response.element?.forecast?.forecastday
             var responseDays: [DayCellViewModel] = []
-        
+            var responseHours: [(date: String, temp: Double, condition: String)] = []
+
+            let currentDay = response.element?.forecast?.forecastday?[0]
+            
             for day in forecastDays! {
                 responseDays.append(DayCellViewModel(dayName: self.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
             }
+               
+            // Get hours of first Day
+            for hour in (currentDay?.hour)! {
+                
+                // Get Hour Part Only
+                responseHours.append((self.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? ""))
+                
+                // self.hours[self.getTimeFrom(date: hour.time ?? "")] = hour.tempC ?? 0
+            }
             
+            // print(self.hours)
             self.days.accept(responseDays)
-            
+            self.hours.accept(responseHours)
+
         }.disposed(by: disposeBag)
     }
     
     func daysViewModelAtIndexPath(_ indexPath: IndexPath) -> DayCellViewModel {
         return days.value[indexPath.row]
+    }
+
+    func daysViewModelAtIndexPath(_ index: Int) -> HourData {
+        return hours.value[index]
     }
 
     func getDayNameBy(stringDate: String) -> String {
@@ -93,6 +109,21 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         let date = df.date(from: stringDate)!
         df.dateFormat = "EEEE"
         return df.string(from: date);
+    }
+
+    func getTimeFrom(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" //this your string date format
+        let convertedDate = dateFormatter.date(from: date)
+
+        dateFormatter.dateFormat = "h:mm a" // This is what you want to convert format
+        let timeStamp = dateFormatter.string(from: convertedDate!)
+
+        return timeStamp
+    }
+    
+    func getCurrentHour() -> Int {
+        return 1
     }
 
 }
