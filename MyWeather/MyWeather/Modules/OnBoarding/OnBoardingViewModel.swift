@@ -15,12 +15,16 @@ protocol OnBoardingViewModelOutput {
 
 protocol OnBoardingViewModelInput {
     
+    var pageControlPages: Int { get }
+    
     func viewDidLoad()
     func nextPressed()
     func skipPressed()
 }
 
 class OnBoardingViewModel: OnBoardingViewModelInput, OnBoardingViewModelOutput {
+    
+    let pageControlPages: Int = 3
     
     var onBoardingScreens: [OnBoardingModel] = []
     var selectedScreenNo = 0

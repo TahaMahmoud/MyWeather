@@ -27,7 +27,6 @@ protocol HomeViewModelInput {
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     
-    
     var weather: BehaviorRelay<HomeModel> = .init(value: HomeModel(location: nil, current: nil, forecast: nil))
     var days: BehaviorRelay<[DayCellViewModel]> = .init(value: [])
     
@@ -83,7 +82,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     } */
     func bindWeather() {
         
-        homeInteractor.getWeather().subscribe { (response) in
+        homeInteractor.getWeatherWithCityName(cityName: "Cairo").subscribe { (response) in
             self.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
 
             let forecastDays = response.element?.forecast?.forecastday
@@ -93,7 +92,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
 
             let currentDay = response.element?.forecast?.forecastday?[0]
             
-            for day in forecastDays! {
+            for day in forecastDays ?? [] {
                 responseDays.append(DayCellViewModel(dayName: self.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
             }
                

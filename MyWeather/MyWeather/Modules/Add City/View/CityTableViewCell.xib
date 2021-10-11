@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTableViewCell" rowHeight="59" id="KGk-i7-Jjw" customClass="CityTableViewCell" customModule="MyWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="58"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8x-oa-Odf" customClass="CustomView" customModule="MyWeather" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="347" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atn-oA-Mgq">
+                                <rect key="frame" x="20" y="14" width="222" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="crt-be-IdI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <color key="textColor" red="0.48050761219999999" green="0.54863643650000005" blue="0.57265621420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMh-01-YYa" customClass="CustomButton" customModule="MyWeather" customModuleProvider="target">
+                                <rect key="frame" x="262" y="12" width="65" height="24"/>
+                                <color key="backgroundColor" red="0.1190911308" green="0.70844793319999999" blue="0.43493986130000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="aYs-dU-6Bm"/>
+                                    <constraint firstAttribute="height" constant="24" id="kUk-Bs-nr2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addCityPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wcK-3D-8lT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97227984670000001" green="0.9804111123" blue="0.98422473669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JMh-01-YYa" firstAttribute="centerY" secondItem="n8x-oa-Odf" secondAttribute="centerY" id="1dz-dk-Mdg"/>
+                            <constraint firstItem="atn-oA-Mgq" firstAttribute="centerY" secondItem="n8x-oa-Odf" secondAttribute="centerY" id="Apm-JP-aWg"/>
+                            <constraint firstItem="JMh-01-YYa" firstAttribute="leading" secondItem="atn-oA-Mgq" secondAttribute="trailing" constant="20" id="Byv-YG-3rJ"/>
+                            <constraint firstAttribute="trailing" secondItem="JMh-01-YYa" secondAttribute="trailing" constant="20" id="Ysw-b4-UZf"/>
+                            <constraint firstItem="atn-oA-Mgq" firstAttribute="leading" secondItem="n8x-oa-Odf" secondAttribute="leading" constant="20" id="k2D-Rt-x0p"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="n8x-oa-Odf" secondAttribute="trailing" id="CoD-tf-37p"/>
+                    <constraint firstItem="n8x-oa-Odf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TmY-Yf-Xnl"/>
+                    <constraint firstItem="n8x-oa-Odf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Y0T-jO-m4H"/>
+                    <constraint firstAttribute="bottom" secondItem="n8x-oa-Odf" secondAttribute="bottom" constant="10" id="xLB-UK-Otd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cityNameLabel" destination="atn-oA-Mgq" id="urB-Rl-Deg"/>
+            </connections>
+            <point key="canvasLocation" x="160.1449275362319" y="120.53571428571428"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="JMh-01-YYa">
+            <size key="intrinsicContentSize" width="30" height="32"/>
+        </designable>
+    </designables>
+</document>

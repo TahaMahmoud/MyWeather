@@ -11,8 +11,6 @@ import RxCocoa
 
 class OnBoardingViewController: UIViewController {
 
-    private let pageControlPages = 3
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
@@ -64,7 +62,7 @@ class OnBoardingViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.pageControl.numberOfPages = pageControlPages
+        self.pageControl.numberOfPages = viewModel.pageControlPages
     }
     
     private func setupOnBoardingElements(title: String, image: String, screenNo: Int, backgroundColor: UIColor) {

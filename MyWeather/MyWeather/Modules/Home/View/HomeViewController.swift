@@ -12,6 +12,11 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
+    internal var hours: [String] = []
+    
+    private let disposeBag = DisposeBag()
+    var viewModel: HomeViewModel!
+
     @IBOutlet weak var cityNameLabel: UILabel!
     
     @IBOutlet weak var currentWeatherImageView: UIImageView!
@@ -24,11 +29,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var daysTableView: UITableView!
     
-    internal var hours: [String] = []
-    
-    private let disposeBag = DisposeBag()
-    var viewModel: HomeViewModel!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

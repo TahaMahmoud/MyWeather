@@ -1,23 +1,16 @@
 //
-//  TrendingInteractor.swift
-//  Popcorn
+//  HomeInteractor+CoreData.swift
+//  MyWeather
 //
-//  Created by Ramzy on 16/04/2021.
+//  Created by mac on 10/11/21.
 //
 
-import Foundation
-import RxSwift
-
-protocol HomeInteractorProtocol: class {
-    func getWeather() -> Observable<(HomeModel)>
-}
-
-class HomeInteractor:HomeInteractorProtocol {
-    var request: HomeRequest?
+extension HomeInteractor {
     
-    func getWeather() -> Observable<(HomeModel)> {
+    /*
+    func getDefaultCity() -> Observable<(String)> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.request = HomeRequest.getWeather
+            self?.request = HomeRequest.getWeatherWithLocation(location: location)
             self?.request?.send(HomeModel.self, completion: { (response) in
                 switch response {
                 case .success(let value):
@@ -30,4 +23,6 @@ class HomeInteractor:HomeInteractorProtocol {
             return Disposables.create()
         }
     }
+    */
+
 }

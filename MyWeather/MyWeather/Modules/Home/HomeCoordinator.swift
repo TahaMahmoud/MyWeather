@@ -39,7 +39,8 @@ extension HomeCoordinator: HomeCoordinatorProtocol {
     }
     
     func navigateToAddCity() {
-        print("Navigated To Add City")
+        let addCityCoordinator = AddCityCoordinator(navigationController: navigationController)
+        addCityCoordinator.start()
     }
 
 }

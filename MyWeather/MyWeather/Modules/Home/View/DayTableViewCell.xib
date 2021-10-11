@@ -33,16 +33,16 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Tbf-kZ-8C0">
-                        <rect key="frame" x="244.5" y="12.5" width="34.5" height="30"/>
+                        <rect key="frame" x="245.5" y="12.5" width="33.5" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkW-ue-6wT">
-                                <rect key="frame" x="0.0" y="0.0" width="23.5" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="22.5" height="30"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
                                 <color key="textColor" red="0.42144691940000001" green="0.50419968370000001" blue="0.6003105044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcR-PO-MVw">
-                                <rect key="frame" x="27.5" y="0.0" width="7" height="15"/>
+                                <rect key="frame" x="26.5" y="0.0" width="7" height="15"/>
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
                                 <color key="textColor" red="0.42144691940000001" green="0.50419968370000001" blue="0.6003105044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                 <outlet property="iconImageView" destination="7m9-mI-00H" id="30i-Ki-zma"/>
                 <outlet property="tempLabel" destination="nkW-ue-6wT" id="wJf-Ob-3cI"/>
             </connections>
-            <point key="canvasLocation" x="141.30434782608697" y="115.51339285714285"/>
+            <point key="canvasLocation" x="137" y="119"/>
         </tableViewCell>
     </objects>
     <resources>
