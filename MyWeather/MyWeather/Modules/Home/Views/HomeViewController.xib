@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyWeather" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="zkd-Lx-Ujw" id="ixg-xa-YsR"/>
                 <outlet property="cityNameLabel" destination="gwg-oH-DsJ" id="1rk-eL-Kp6"/>
                 <outlet property="currentTempLabel" destination="pP9-8f-Jq0" id="Wex-Le-6wg"/>
                 <outlet property="currentWeatherImageView" destination="zWv-DG-MUz" id="4Ta-fK-e6d"/>
@@ -34,7 +35,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rainy_background" translatesAutoresizingMaskIntoConstraints="NO" id="zkd-Lx-Ujw">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zkd-Lx-Ujw">
                     <rect key="frame" x="-30" y="44" width="474" height="448"/>
                     <color key="backgroundColor" name="RainyColor"/>
                 </imageView>
@@ -59,13 +60,13 @@
                         <action selector="addCityPressed:" destination="-1" eventType="touchUpInside" id="jg7-Z9-zf7"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CAIRO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-oH-DsJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-oH-DsJ">
                     <rect key="frame" x="80" y="42" width="254" height="34"/>
                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
                     <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rainy_header_home" translatesAutoresizingMaskIntoConstraints="NO" id="zWv-DG-MUz">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zWv-DG-MUz">
                     <rect key="frame" x="132" y="96" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="QKC-nz-tfV"/>
@@ -75,14 +76,14 @@
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-FD-x9q">
                     <rect key="frame" x="165.5" y="396" width="83" height="33"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP9-8f-Jq0">
-                            <rect key="frame" x="0.0" y="0.0" width="53" height="33"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pP9-8f-Jq0">
+                            <rect key="frame" x="0.0" y="0.0" width="54" height="33"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="27"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQx-3V-PEt">
-                            <rect key="frame" x="58" y="0.0" width="25" height="23"/>
+                            <rect key="frame" x="59" y="0.0" width="24" height="23"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -99,7 +100,7 @@
                         <constraint firstAttribute="width" constant="83" id="vkf-A4-oU5"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAINY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-zR-2Zu">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ww-zR-2Zu">
                     <rect key="frame" x="20" y="429" width="374" height="23"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="23" id="TGs-FU-pbC"/>
@@ -183,8 +184,6 @@
     <resources>
         <image name="footer_background_path" width="375.5" height="330.5"/>
         <image name="ic_add_home" width="74" height="74"/>
-        <image name="ic_rainy_background" width="388.5" height="388.5"/>
-        <image name="ic_rainy_header_home" width="144.5" height="144.5"/>
         <image name="ic_settings_home" width="20.5" height="20.5"/>
         <namedColor name="RainyColor">
             <color red="0.15700000524520874" green="0.28099998831748962" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

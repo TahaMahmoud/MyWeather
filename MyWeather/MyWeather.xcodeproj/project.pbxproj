@@ -25,6 +25,7 @@
 		04540D8E2701C9A400B34367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04540D8C2701C9A400B34367 /* LaunchScreen.storyboard */; };
 		04540D992701C9A400B34367 /* MyWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540D982701C9A400B34367 /* MyWeatherTests.swift */; };
 		04540DA42701C9A400B34367 /* MyWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04540DA32701C9A400B34367 /* MyWeatherUITests.swift */; };
+		04542D422714453A0007349B /* UIImage+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04542D412714453A0007349B /* UIImage+Alpha.swift */; };
 		046BB0D32701D2F40007E43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D22701D2F40007E43A /* UITableView.swift */; };
 		046BB0DF2701D3420007E43A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D82701D3410007E43A /* Constants.swift */; };
 		046BB0E02701D3420007E43A /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D92701D3410007E43A /* ResponseHandler.swift */; };
@@ -88,6 +89,7 @@
 		04540D9F2701C9A400B34367 /* MyWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04540DA32701C9A400B34367 /* MyWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWeatherUITests.swift; sourceTree = "<group>"; };
 		04540DA52701C9A400B34367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04542D412714453A0007349B /* UIImage+Alpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Alpha.swift"; sourceTree = "<group>"; };
 		046BB0D22701D2F40007E43A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		046BB0D82701D3410007E43A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		046BB0D92701D3410007E43A /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				04C3D4AB270B060E00A876B0 /* CustomView.swift */,
 				046BB0D22701D2F40007E43A /* UITableView.swift */,
 				04C3D47A270AF51000A876B0 /* UIViewController.swift */,
+				04542D412714453A0007349B /* UIImage+Alpha.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				046BB0E32701D3420007E43A /* ResponseDecoder.swift in Sources */,
 				04C3D496270B00FC00A876B0 /* DayTableViewCell.swift in Sources */,
 				04FA4FDF270C3E7C00606300 /* HomeRequest.swift in Sources */,
+				04542D422714453A0007349B /* UIImage+Alpha.swift in Sources */,
 				046BB0E02701D3420007E43A /* ResponseHandler.swift in Sources */,
 				046BB1002701E5200007E43A /* OnBoardingViewController.swift in Sources */,
 				04C3D47B270AF51000A876B0 /* UIViewController.swift in Sources */,

@@ -12,8 +12,9 @@ import RxCocoa
 protocol HomeViewModelOutput {
     func daysViewModelAtIndexPath(_ indexPath: IndexPath) -> DayCellViewModel
     func hourWeatherAt(_ index: Int) -> HourData
+    func hourWeatherAt(_ time: String) -> HourData
     
-    func getCurrentHour() -> Int
+    func getIndexFrom(time: String) -> Int
 }
 
 protocol HomeViewModelInput {
@@ -25,12 +26,15 @@ protocol HomeViewModelInput {
 }
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
-        
+    
+    
     var weather: BehaviorRelay<HomeModel> = .init(value: HomeModel(location: nil, current: nil, forecast: nil))
     var days: BehaviorRelay<[DayCellViewModel]> = .init(value: [])
     
     var hours:BehaviorRelay<[HourData]> = .init(value: [])
 
+    var currentHour: PublishSubject<HourData> = .init()
+    
     private let coordinator: HomeCoordinator
     let disposeBag = DisposeBag()
     
@@ -40,8 +44,8 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         self.homeInteractor = homeInteractor
         self.coordinator = coordinator
         // fillHoursData()
-        getWeather()
-        bindWeatherDays()
+        // getWeather()
+        bindWeather()
     }
     
     func viewDidLoad() {
@@ -56,22 +60,36 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         coordinator.navigateToSettings()
     }
     
-    func hourWeatherAt(_ index: Int) -> (date: String, temp: Double, condition: String) {
+    func hourWeatherAt(_ index: Int) -> HourData {
         return hours.value[index]
     }
 
-    private func getWeather() {
+    func hourWeatherAt(_ time: String) -> HourData {
+        
+        for hour in hours.value {
+            if hour.time == time {
+                return hour
+            }
+        }
+        
+        return hours.value[0]
+    }
+
+    /* private func getWeather() {
         homeInteractor.getWeather().subscribe{ (response) in
             self.weather.accept(response)
             // print(response)
         }.disposed(by: disposeBag)
-    }
-    
-    func bindWeatherDays() {
+    } */
+    func bindWeather() {
+        
         homeInteractor.getWeather().subscribe { (response) in
+            self.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
+
             let forecastDays = response.element?.forecast?.forecastday
             var responseDays: [DayCellViewModel] = []
-            var responseHours: [(date: String, temp: Double, condition: String)] = []
+            
+            var responseHours: [HourData] = []
 
             let currentDay = response.element?.forecast?.forecastday?[0]
             
@@ -83,24 +101,21 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
             for hour in (currentDay?.hour)! {
                 
                 // Get Hour Part Only
-                responseHours.append((self.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? ""))
+                responseHours.append((self.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
                 
-                // self.hours[self.getTimeFrom(date: hour.time ?? "")] = hour.tempC ?? 0
             }
             
             // print(self.hours)
             self.days.accept(responseDays)
             self.hours.accept(responseHours)
+            
+            self.getCurrentHour()
 
         }.disposed(by: disposeBag)
     }
     
     func daysViewModelAtIndexPath(_ indexPath: IndexPath) -> DayCellViewModel {
         return days.value[indexPath.row]
-    }
-
-    func daysViewModelAtIndexPath(_ index: Int) -> HourData {
-        return hours.value[index]
     }
 
     func getDayNameBy(stringDate: String) -> String {
@@ -122,8 +137,33 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         return timeStamp
     }
     
-    func getCurrentHour() -> Int {
-        return 1
+    func getCurrentHour() {
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:00 a"
+
+        let time = formatter.string(from: Date())
+
+        for hour in hours.value {
+            if hour.time == time {
+                currentHour.onNext(hour)
+            }
+        }
+    }
+    
+    func getIndexFrom(time: String) -> Int {
+        var index = 0
+        
+        for hour in hours.value {
+            if hour.time == time {
+                return index
+            }
+            else {
+                index = index + 1
+            }
+        }
+        
+        return index
     }
 
 }

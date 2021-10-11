@@ -8,12 +8,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var cityNameLabel: UILabel!
     
     @IBOutlet weak var currentWeatherImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     @IBOutlet weak var hoursPickerView: UIPickerView!
     
@@ -36,7 +38,9 @@ class HomeViewController: UIViewController {
 
         setupTableView()
         
+        bindCityName()
         bindHoursPickerView()
+        bindCurrentWeather()
         bindTableView()
         
     }
@@ -52,25 +56,33 @@ class HomeViewController: UIViewController {
     private func setupHoursPickerView() {
         hoursPickerView.setValue(UIColor.white, forKeyPath: "textColor")
     }
+
+    func bindCityName() {
+        viewModel.weather.subscribe { [weak self] weather in
+            self?.cityNameLabel.text = weather.element?.location?.name?.uppercased() ?? ""
+        }.disposed(by: disposeBag)
+    }
     
-    private func bindHoursPickerView() {
-
-        viewModel.hours.asObservable().subscribe(onDisposed:  { () in
-            self.setupCurrentWeatherUI(data: self.viewModel.hourWeatherAt(self.viewModel.getCurrentHour()))
-        }).disposed(by: disposeBag)
-        
-
+    func bindCurrentWeather() {
+        viewModel.currentHour.subscribe { [weak self] hour in
+            self?.setupCurrentWeatherUI(data: (self?.viewModel.hourWeatherAt(hour.element?.time ?? "12:00 AM")) ?? (time: "12:00", temp: 0, condition: "", icon: ""))
+            
+            // Select the index of current hour in uipickerview
+            self?.hoursPickerView.selectRow(self?.viewModel.getIndexFrom(time: hour.element?.time ?? "12:00 AM") ?? 0, inComponent: 0, animated: true)
+        }.disposed(by: disposeBag)
+    }
+    
+    private func bindHoursPickerView() {       
+                
         viewModel.hours
             .bind(to: hoursPickerView.rx.itemTitles) { _, item in
-                return item.date
+                return item.time
         }.disposed(by: disposeBag)
 
         //optional: preselect the second item in pickerview
-        hoursPickerView.selectRow(1, inComponent: 0, animated: true)
 
-        
-        hoursPickerView.rx.itemSelected.asObservable().subscribe(onNext: {item in
-            self.setupCurrentWeatherUI(data: self.viewModel.hourWeatherAt(item.row))
+        hoursPickerView.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] item in
+            self?.setupCurrentWeatherUI(data: self?.viewModel.hourWeatherAt(item.row) ?? (time: "12:00", temp: 0, condition: "", icon: "") )
         }).disposed(by: disposeBag)
 
     }
@@ -93,6 +105,10 @@ class HomeViewController: UIViewController {
     func setupCurrentWeatherUI(data: HourData) {
         currentTempLabel.text = "\(data.temp)"
         weatherStateLabel.text = data.condition
-    }
-}
+        
+        guard let imageURL = URL(string: data.icon) else {return}
+        currentWeatherImageView.kf.setImage(with: imageURL)
 
+    }
+        
+}
