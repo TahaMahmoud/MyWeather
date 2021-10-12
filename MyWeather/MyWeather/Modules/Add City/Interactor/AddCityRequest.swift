@@ -23,7 +23,7 @@ enum AddCityRequest: URLRequestBuilder {
         var param = defaultParams
         switch self {
         case .fetchCities(let cityName):
-            param = ["key": Constants.apiKey, "q": "Giza"]
+            param = ["key": Constants.apiKey, "q": cityName]
     
         }
         

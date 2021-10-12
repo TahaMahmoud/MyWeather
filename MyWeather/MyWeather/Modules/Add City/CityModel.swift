@@ -8,13 +8,8 @@
 import Foundation
 
 struct CityModel: ResponseDecoder {
-    let cities: [CityModelElement]
-}
-
-struct CityModelElement: Codable {
     let id: Int?
     let name, region, country: String?
     let lat, lon: Double?
     let url: String?
 }
-

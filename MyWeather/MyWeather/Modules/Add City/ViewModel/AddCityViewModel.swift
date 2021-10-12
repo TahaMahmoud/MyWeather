@@ -23,7 +23,6 @@ protocol AddCityViewModelInput {
 
 class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
     
-    var citiesResult: BehaviorRelay<CityModel> = .init(value: CityModel(cities: []))
     var cities: BehaviorRelay<[CityCellViewModel]> = .init(value: [])
     
     private let coordinator: AddCityCoordinator
@@ -43,7 +42,7 @@ class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
     func fetchCities(cityName: String) {
         addCityInteractor.featchCities(cityName: cityName).subscribe { (response) in
             
-            let responseCities = response.element?.cities
+            let responseCities = response.element
             var cities: [CityCellViewModel] = []
                         
             for city in responseCities ?? [] {

@@ -21,7 +21,6 @@ struct UploadData {
     var fileName, mimeType, name: String
 }
 
-
 extension RequestHandler {
     private func uploadToServerWith<T: ResponseDecoder>(_ decoder: T.Type, data: UploadData, request: URLRequestConvertible, parameters: Parameters?, progress: ((Progress) -> Void)?, completion: CallResponse<T>) {
         AF.upload(multipartFormData: { (multipartFormData) in
@@ -42,11 +41,10 @@ extension RequestHandler {
         }
     }
     
-    
     func cancelRequest() {
         
-        
     }
+    
 }
 
 extension RequestHandler where Self: URLRequestBuilder {
@@ -55,8 +53,35 @@ extension RequestHandler where Self: URLRequestBuilder {
             uploadToServerWith(decoder, data: data, request: self, parameters: self.parameters, progress: progress, completion: completion)
         } else {
             AF.request(self).validate().responseData { (response) in
+                /*
+                 do {
+                    if let jsonResponse = try JSONSerialization.jsonObject(with: response.data!, options: []) as? NSArray {
+                        
+                        // Update JSON To Add Key Before Array
+                        let jsonObject: [String: Any] = [
+                            "data": jsonResponse
+                        ]
+                        
+                        // Convert New JSON To Data
+                        do {
+                            let data = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions.prettyPrinted)
+                            
+                            // Create New AFDataResponse
+                            
+                            self.handleResponse(, completion: completion)
+                        } catch let JSONError {
+                            print(JSONError)
+                        }
+
+                    }
+                }
+                catch{
+                    print("erroMsg")
+                }
+                 */
                 self.handleResponse(response, completion: completion)
             }
         }
     }
+    
 }

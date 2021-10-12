@@ -97,7 +97,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
             }
                
             // Get hours of first Day
-            for hour in (currentDay?.hour)! {
+            for hour in (currentDay?.hour) ?? [] {
                 
                 // Get Hour Part Only
                 responseHours.append((self.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
