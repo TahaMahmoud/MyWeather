@@ -36,10 +36,6 @@
 		04542D72271467470007349B /* AddCityInteractor+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04542D71271467470007349B /* AddCityInteractor+Network.swift */; };
 		046BB0D32701D2F40007E43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D22701D2F40007E43A /* UITableView.swift */; };
 		046BB0DF2701D3420007E43A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D82701D3410007E43A /* Constants.swift */; };
-		046BB0E02701D3420007E43A /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D92701D3410007E43A /* ResponseHandler.swift */; };
-		046BB0E12701D3420007E43A /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0DA2701D3410007E43A /* RequestBuilder.swift */; };
-		046BB0E22701D3420007E43A /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0DB2701D3410007E43A /* RequestHandler.swift */; };
-		046BB0E32701D3420007E43A /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0DC2701D3410007E43A /* ResponseDecoder.swift */; };
 		046BB0E42701D3420007E43A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0DE2701D3420007E43A /* AppCoordinator.swift */; };
 		046BB1002701E5200007E43A /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0FE2701E5200007E43A /* OnBoardingViewController.swift */; };
 		046BB1012701E5200007E43A /* OnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046BB0FF2701E5200007E43A /* OnBoardingViewController.xib */; };
@@ -49,6 +45,9 @@
 		0485499D27146DF900D0E5D5 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0485499B27146DF900D0E5D5 /* CityTableViewCell.xib */; };
 		048549A22714751100D0E5D5 /* CityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048549A12714751100D0E5D5 /* CityCellViewModel.swift */; };
 		048549A727147F2A00D0E5D5 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048549A627147F2A00D0E5D5 /* CityModel.swift */; };
+		04AA56F52716D86C0032CF92 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F22716D86C0032CF92 /* Endpoint.swift */; };
+		04AA56F62716D86C0032CF92 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F32716D86C0032CF92 /* NetworkManager.swift */; };
+		04AA56F72716D86C0032CF92 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F42716D86C0032CF92 /* NetworkError.swift */; };
 		04B1366F2701F42400CAABD4 /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B1366E2701F42400CAABD4 /* OnBoardingModel.swift */; };
 		04C3D47B270AF51000A876B0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D47A270AF51000A876B0 /* UIViewController.swift */; };
 		04C3D485270AF83300A876B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3D483270AF83300A876B0 /* HomeViewController.swift */; };
@@ -112,10 +111,6 @@
 		04542D71271467470007349B /* AddCityInteractor+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCityInteractor+Network.swift"; sourceTree = "<group>"; };
 		046BB0D22701D2F40007E43A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		046BB0D82701D3410007E43A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		046BB0D92701D3410007E43A /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
-		046BB0DA2701D3410007E43A /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
-		046BB0DB2701D3410007E43A /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
-		046BB0DC2701D3410007E43A /* ResponseDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		046BB0DE2701D3420007E43A /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		046BB0F12701E1BB0007E43A /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		046BB0F22701E1BB0007E43A /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
@@ -135,6 +130,9 @@
 		0485499B27146DF900D0E5D5 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		048549A12714751100D0E5D5 /* CityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellViewModel.swift; sourceTree = "<group>"; };
 		048549A627147F2A00D0E5D5 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		04AA56F22716D86C0032CF92 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		04AA56F32716D86C0032CF92 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		04AA56F42716D86C0032CF92 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		04B1366E2701F42400CAABD4 /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
 		04C3D47A270AF51000A876B0 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		04C3D483270AF83300A876B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -376,10 +374,9 @@
 			isa = PBXGroup;
 			children = (
 				046BB0D82701D3410007E43A /* Constants.swift */,
-				046BB0D92701D3410007E43A /* ResponseHandler.swift */,
-				046BB0DA2701D3410007E43A /* RequestBuilder.swift */,
-				046BB0DB2701D3410007E43A /* RequestHandler.swift */,
-				046BB0DC2701D3410007E43A /* ResponseDecoder.swift */,
+				04AA56F22716D86C0032CF92 /* Endpoint.swift */,
+				04AA56F42716D86C0032CF92 /* NetworkError.swift */,
+				04AA56F32716D86C0032CF92 /* NetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -775,9 +772,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AA56F62716D86C0032CF92 /* NetworkManager.swift in Sources */,
 				04C3D48B270AF83F00A876B0 /* HomeViewModel.swift in Sources */,
 				04C72F0927132620006D05F6 /* Typealias.swift in Sources */,
-				046BB0E12701D3420007E43A /* RequestBuilder.swift in Sources */,
 				04FA4FD8270C3DAA00606300 /* HomeModel.swift in Sources */,
 				046BB1142701EDAE0007E43A /* OnBoardingViewModel.swift in Sources */,
 				04C3D4AD270B060E00A876B0 /* CustomView.swift in Sources */,
@@ -790,6 +787,8 @@
 				046BB0D32701D2F40007E43A /* UITableView.swift in Sources */,
 				04FA4FDE270C3E7C00606300 /* HomeInteractor+Network.swift in Sources */,
 				0446E733270C8AAF005343D4 /* Date.swift in Sources */,
+				04AA56F52716D86C0032CF92 /* Endpoint.swift in Sources */,
+				04AA56F72716D86C0032CF92 /* NetworkError.swift in Sources */,
 				04542D6D271466630007349B /* AddCityRequest.swift in Sources */,
 				04542D4A27145DBE0007349B /* HomeInteractor+CoreData.swift in Sources */,
 				04B1366F2701F42400CAABD4 /* OnBoardingModel.swift in Sources */,
@@ -799,15 +798,12 @@
 				04540D7F2701C9A300B34367 /* AppDelegate.swift in Sources */,
 				04540D812701C9A300B34367 /* SceneDelegate.swift in Sources */,
 				04C3D490270AF85100A876B0 /* HomeCoordinator.swift in Sources */,
-				046BB0E22701D3420007E43A /* RequestHandler.swift in Sources */,
 				04C3D485270AF83300A876B0 /* HomeViewController.swift in Sources */,
 				04FA4FEB270C479500606300 /* DayCellViewModel.swift in Sources */,
-				046BB0E32701D3420007E43A /* ResponseDecoder.swift in Sources */,
 				04C3D496270B00FC00A876B0 /* DayTableViewCell.swift in Sources */,
 				04FA4FDF270C3E7C00606300 /* HomeRequest.swift in Sources */,
 				04542D582714644E0007349B /* AddCityViewController.swift in Sources */,
 				04542D422714453A0007349B /* UIImage+Alpha.swift in Sources */,
-				046BB0E02701D3420007E43A /* ResponseHandler.swift in Sources */,
 				04542D72271467470007349B /* AddCityInteractor+Network.swift in Sources */,
 				046BB1002701E5200007E43A /* OnBoardingViewController.swift in Sources */,
 				04C3D47B270AF51000A876B0 /* UIViewController.swift in Sources */,

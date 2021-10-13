@@ -24,6 +24,7 @@ class CityTableViewCell: UITableViewCell {
     
     func configure(_ viewModel: CityCellViewModel) {
         cityNameLabel.text = viewModel.cityName
+        self.backgroundColor = .none
     }
 
     @IBAction func addCityPressed(_ sender: Any) {

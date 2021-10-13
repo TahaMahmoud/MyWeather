@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - HomeModel
-struct HomeModel: ResponseDecoder {
+struct HomeModel: Codable {
     let location: Location?
     let current: Current?
     let forecast: Forecast?

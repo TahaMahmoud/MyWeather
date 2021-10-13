@@ -8,18 +8,21 @@
 import Foundation
 import Alamofire
 
-enum HomeRequest: URLRequestBuilder {
+enum HomeRequest: Endpoint {
     case getWeatherWithCityName(cityName: String)
     case getWeatherWithLocation(location: String)
 
     var path: String {
         switch self {
         
-        case .getWeatherWithCityName:
-            return "forecast.json"
-        case .getWeatherWithLocation:
+        case .getWeatherWithCityName, .getWeatherWithLocation:
             return "forecast.json"
         }
+    }
+    
+    var headers: HTTPHeaders {
+        let headers = defaultHeaders
+        return headers
     }
     
     var parameters: Parameters? {

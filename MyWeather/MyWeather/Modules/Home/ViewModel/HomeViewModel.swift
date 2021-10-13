@@ -39,7 +39,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     
     private let homeInteractor: HomeInteractorProtocol
     
-    init(homeInteractor:HomeInteractorProtocol = HomeInteractor(),coordinator: HomeCoordinator) {
+    init(homeInteractor: HomeInteractorProtocol = HomeInteractor(networkManager: AlamofireManager()),coordinator: HomeCoordinator) {
         self.homeInteractor = homeInteractor
         self.coordinator = coordinator
         // fillHoursData()

@@ -20,37 +20,39 @@ protocol HomeInteractorProtocol: class {
 }
 
 class HomeInteractor: HomeInteractorProtocol {
+        
+    var networkManager: AlamofireManager
     
-    var request: HomeRequest?
-    
+    init(networkManager: AlamofireManager) {
+        self.networkManager = networkManager
+    }
+
     func getWeatherWithCityName(cityName: String) -> Observable<(HomeModel)> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.request = HomeRequest.getWeatherWithCityName(cityName: cityName)
-            self?.request?.send(HomeModel.self, completion: { (response) in
-                switch response {
+            self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
+                switch result {
                 case .success(let value):
                     observer.onNext((value))
                 case .failure(let error):
                     print(error)
                     observer.onError(error)
                 }
-            })
+            }
             return Disposables.create()
         }
     }
     
     func getWeatherWithLocation(location: String) -> Observable<(HomeModel)> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.request = HomeRequest.getWeatherWithLocation(location: location)
-            self?.request?.send(HomeModel.self, completion: { (response) in
-                switch response {
+            self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithLocation(location: location)) { (result) in
+                switch result {
                 case .success(let value):
                     observer.onNext((value))
                 case .failure(let error):
                     print(error)
                     observer.onError(error)
                 }
-            })
+            }
             return Disposables.create()
         }
     }

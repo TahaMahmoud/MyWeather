@@ -1,51 +1,43 @@
 //
-//  RequestBuilder.swift
-//  MyWeather
+//  Endpoint.swift
+//  Football-League
 //
-//  Created by mac on 9/27/21.
+//  Created by Ramzy on 14/07/2021.
 //
 
 import Foundation
 import Alamofire
 
-protocol URLRequestBuilder: URLRequestConvertible,RequestHandler {
-    var mainURL: URL { get }
-    
-    var requestURL: URL { get }
-    
+protocol Endpoint: URLRequestConvertible {
+    var baseURL: String { get }
     var path: String { get }
-    
+    var requestURL: URL { get }
     var headers: HTTPHeaders { get }
-    
     var parameters: Parameters? { get }
-    
-    var method: HTTPMethod { get }
-    
     var encoding: ParameterEncoding { get }
-    
+    var method: HTTPMethod { get }
     var urlRequest: URLRequest { get }
-    
 }
 
-extension URLRequestBuilder {
-    var mainURL: URL {
-        return URL(string: "http://api.weatherapi.com/v1/")!
+extension Endpoint {
+    var baseURL: String {
+        return "http://api.weatherapi.com/v1/"
     }
     
     var requestURL: URL {
-        return mainURL.appendingPathComponent(path)
+        return URL(string: baseURL + path)!
     }
     
-    var headers: HTTPHeaders {
+    var defaultHeaders: HTTPHeaders {
         var headers = HTTPHeaders()
-        // headers.add(HTTPHeader(name: "Authorization", value: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyOGU0Yjc1OGM4ODg3NDRlNTczNmQ2ZmI1MTkyOWYyMSIsInN1YiI6IjVjY2UxZjExMGUwYTI2MmZiYjA0Y2Q2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iSpO81qMhkUYyEMgW9wwKaUletRWjwJXLlcdWHSB6Mk"))
+        // headers.add(name: "Content-Type", value: "application/json")
+        //headers.add(name: "X-Auth-Token", value: "667ac0caf65341b1a023cd6f470d9c31")
         
         return headers
     }
     
     var defaultParams: Parameters {
-        var param = Parameters()
-        //param = ["key": Constants.apiKey, "lang": "en"]
+        let param = Parameters()
         return param
     }
     
@@ -61,15 +53,14 @@ extension URLRequestBuilder {
     var urlRequest: URLRequest {
         var request = URLRequest(url: requestURL)
         request.httpMethod = method.rawValue
-        for header in headers {
+        defaultHeaders.forEach { header in
             request.addValue(header.value, forHTTPHeaderField: header.name)
         }
         return request
     }
     
-    
     func asURLRequest() throws -> URLRequest {
         return try encoding.encode(urlRequest, with: parameters)
     }
-    
 }
+

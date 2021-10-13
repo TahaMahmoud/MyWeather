@@ -8,8 +8,13 @@
 import Foundation
 import Alamofire
 
-enum AddCityRequest: URLRequestBuilder {
+enum AddCityRequest: Endpoint {
     case fetchCities(cityName: String)
+
+    var headers: HTTPHeaders {
+        let headers = defaultHeaders
+        return headers
+    }
 
     var path: String {
         switch self {
@@ -38,4 +43,5 @@ enum AddCityRequest: URLRequestBuilder {
 
         }
     }
+
 }

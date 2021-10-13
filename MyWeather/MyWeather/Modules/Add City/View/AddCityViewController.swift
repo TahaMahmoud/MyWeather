@@ -32,7 +32,7 @@ class AddCityViewController: UIViewController {
     }
     
     fileprivate func setupTableView() {
-        citiesSearchResultTableView.registerCellNib(cellClass: DayTableViewCell.self)
+        citiesSearchResultTableView.registerCellNib(cellClass: CityTableViewCell.self)
     }
 
     fileprivate func bindTableView() {

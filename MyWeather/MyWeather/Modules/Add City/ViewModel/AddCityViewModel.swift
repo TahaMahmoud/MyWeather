@@ -30,7 +30,7 @@ class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
     
     private let addCityInteractor: AddCityInteractorProtocol
     
-    init(addCityInteractor: AddCityInteractorProtocol = AddCityInteractor(), coordinator: AddCityCoordinator) {
+    init(addCityInteractor: AddCityInteractorProtocol = AddCityInteractor(networkManager: AlamofireManager()), coordinator: AddCityCoordinator) {
         self.addCityInteractor = addCityInteractor
         self.coordinator = coordinator
     }

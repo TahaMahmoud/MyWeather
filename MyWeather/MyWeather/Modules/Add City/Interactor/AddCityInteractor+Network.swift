@@ -19,24 +19,28 @@ protocol AddCityInteractorProtocol: class {
 
 }
 
-class AddCityInteractor: AddCityInteractorProtocol {
+class AddCityInteractor: AddCityInteractorProtocol {   
     
-    var request: AddCityRequest?
+    var networkManager: AlamofireManager
+    
+    init(networkManager: AlamofireManager) {
+        self.networkManager = networkManager
+    }
     
     func featchCities(cityName: String) -> Observable<[CityModel]> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.request = AddCityRequest.fetchCities(cityName: cityName)
-            self?.request?.send([CityModel].self, completion: { (response) in
-                switch response {
+            self?.networkManager.callRequest([CityModel].self, endpoint: AddCityRequest.fetchCities(cityName: cityName)) { (result) in
+                switch result {
                 case .success(let value):
                     observer.onNext((value))
                 case .failure(let error):
                     print(error)
                     observer.onError(error)
                 }
-            })
+            }
             return Disposables.create()
         }
     }
+
     
 }

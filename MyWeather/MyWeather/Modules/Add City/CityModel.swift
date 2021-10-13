@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CityModel: ResponseDecoder {
+struct CityModel: Codable {
     let id: Int?
     let name, region, country: String?
     let lat, lon: Double?
