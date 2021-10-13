@@ -53,9 +53,20 @@
                         <action selector="settingsPressed:" destination="-1" eventType="touchUpInside" id="dlc-k5-DH9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmf-Vt-7lo">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmf-Vt-7lo" customClass="CustomButton" customModule="MyWeather" customModuleProvider="target">
                     <rect key="frame" x="364" y="44" width="30" height="30"/>
-                    <state key="normal" backgroundImage="ic_add_home"/>
+                    <color key="backgroundColor" red="0.97227984670000001" green="0.9804111123" blue="0.98422473669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" name="RainyColor"/>
+                    <state key="normal" image="location.fill.viewfinder" catalog="system"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="addCityPressed:" destination="-1" eventType="touchUpInside" id="jg7-Z9-zf7"/>
                     </connections>
@@ -181,10 +192,15 @@
             <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
         </view>
     </objects>
+    <designables>
+        <designable name="Dmf-Vt-7lo">
+            <size key="intrinsicContentSize" width="20.5" height="22"/>
+        </designable>
+    </designables>
     <resources>
         <image name="footer_background_path" width="375.5" height="330.5"/>
-        <image name="ic_add_home" width="74" height="74"/>
         <image name="ic_settings_home" width="20.5" height="20.5"/>
+        <image name="location.fill.viewfinder" catalog="system" width="128" height="115"/>
         <namedColor name="RainyColor">
             <color red="0.15700000524520874" green="0.28099998831748962" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

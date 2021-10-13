@@ -170,7 +170,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="SunnyColor"/>
+            <color key="backgroundColor" name="RainyColor"/>
             <constraints>
                 <constraint firstItem="HzP-2w-AJi" firstAttribute="leading" secondItem="kVS-CV-Vzb" secondAttribute="leading" id="0Cz-NI-HQY"/>
                 <constraint firstItem="iLY-1Q-Nqo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="0ST-4m-ICW"/>
@@ -207,8 +207,8 @@
         <image name="ic_back" width="9.5" height="16.5"/>
         <image name="ic_location_add_city" width="20.5" height="27.5"/>
         <image name="ic_search_add_city" width="18" height="18"/>
-        <namedColor name="SunnyColor">
-            <color red="0.89803921568627454" green="0.47058823529411764" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="RainyColor">
+            <color red="0.15700000524520874" green="0.28099998831748962" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

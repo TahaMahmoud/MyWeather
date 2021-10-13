@@ -1,26 +1,28 @@
 //
-//  AddCityInteractor+Network.swift
+//  CitiesInteractor+Network.swift
 //  MyWeather
 //
-//  Created by mac on 10/11/21.
+//  Created by mac on 10/13/21.
 //
 
 import Foundation
 import RxSwift
 
-protocol AddCityInteractorProtocol: class {
+protocol CitiesInteractorProtocol: class {
     
     // Network Requests
-    func featchCities(cityName: String) -> Observable<[CityModel]>
+    func getWeather(cityName: String) -> Observable<(HomeModel)>
     // func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
-    func addNewCity(city: City) -> Observable<Bool>
-
+    func fetchCachedCities() -> Observable<[City]>
+    
 }
 
-class AddCityInteractor: AddCityInteractorProtocol {   
+class CitiesInteractor: CitiesInteractorProtocol {
     
+    var cachedCities: [City] = [City]()
+
     var networkManager: AlamofireManager
     var coreDataManager: CoreDataManager
     
@@ -29,9 +31,9 @@ class AddCityInteractor: AddCityInteractorProtocol {
         self.coreDataManager = CoreDataManager()
     }
     
-    func featchCities(cityName: String) -> Observable<[CityModel]> {
+    func getWeather(cityName: String) -> Observable<(HomeModel)> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.networkManager.callRequest([CityModel].self, endpoint: AddCityRequest.fetchCities(cityName: cityName)) { (result) in
+            self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
                 switch result {
                 case .success(let value):
                     observer.onNext((value))

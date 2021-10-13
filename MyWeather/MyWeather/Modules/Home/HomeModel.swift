@@ -16,7 +16,7 @@ struct HomeModel: Codable {
 
 // MARK: - Current
 struct Current: Codable {
-    let tempC: Int?
+    let tempC: Double?
     let condition: Condition?
 
     enum CodingKeys: String, CodingKey {

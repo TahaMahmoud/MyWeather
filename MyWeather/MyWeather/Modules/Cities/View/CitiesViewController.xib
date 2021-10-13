@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CitiesViewController" customModule="MyWeather" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="eSF-M9-hUM">
+                    <rect key="frame" x="0.0" y="87" width="414" height="809"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cft-Kv-baA">
+                    <rect key="frame" x="20" y="62" width="16" height="27"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="0mM-ky-Dty"/>
+                        <constraint firstAttribute="height" constant="27" id="AIl-F5-FOf"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="ic_back"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CITIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qp-P7-66w">
+                    <rect key="frame" x="66" y="58" width="268" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="8XM-em-K5U"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="29"/>
+                    <color key="textColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="85" estimatedRowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n92-Ne-jYQ">
+                    <rect key="frame" x="20" y="167" width="374" height="684"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently Added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUh-Ke-g1U">
+                    <rect key="frame" x="20" y="121" width="374" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="Tu1-qv-Ow8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                    <color key="textColor" red="0.40086719389999997" green="0.36694857479999998" blue="0.40786454080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwh-hz-2aB" customClass="CustomButton" customModule="MyWeather" customModuleProvider="target">
+                    <rect key="frame" x="364" y="60.5" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.97227984670000001" green="0.9804111123" blue="0.98422473669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="4Rd-D9-eee"/>
+                        <constraint firstAttribute="width" constant="30" id="hVo-ru-ywQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" name="RainyColor"/>
+                    <state key="normal" image="ic_add_home"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusValue">
+                            <real key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="SunnyColor"/>
+            <constraints>
+                <constraint firstItem="n92-Ne-jYQ" firstAttribute="leading" secondItem="Cft-Kv-baA" secondAttribute="leading" id="0iz-fj-Tw0"/>
+                <constraint firstItem="iwh-hz-2aB" firstAttribute="centerY" secondItem="6Qp-P7-66w" secondAttribute="centerY" id="3SK-sj-45n"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="n92-Ne-jYQ" secondAttribute="bottom" constant="11" id="5wD-7k-ShT"/>
+                <constraint firstItem="Cft-Kv-baA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SjF-f5-j0h"/>
+                <constraint firstItem="n92-Ne-jYQ" firstAttribute="trailing" secondItem="iwh-hz-2aB" secondAttribute="trailing" id="Szo-PT-n6G"/>
+                <constraint firstItem="Cft-Kv-baA" firstAttribute="centerY" secondItem="6Qp-P7-66w" secondAttribute="centerY" id="TOf-ig-qRB"/>
+                <constraint firstItem="6Qp-P7-66w" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="UPC-D0-BF7"/>
+                <constraint firstItem="eSF-M9-hUM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UdP-up-Q8H"/>
+                <constraint firstItem="6Qp-P7-66w" firstAttribute="leading" secondItem="Cft-Kv-baA" secondAttribute="trailing" constant="30" id="UzS-Yw-Rlh"/>
+                <constraint firstItem="iUh-Ke-g1U" firstAttribute="top" secondItem="6Qp-P7-66w" secondAttribute="bottom" constant="28" id="Y1H-gs-qwI"/>
+                <constraint firstAttribute="trailing" secondItem="eSF-M9-hUM" secondAttribute="trailing" id="YPQ-ff-PJt"/>
+                <constraint firstItem="n92-Ne-jYQ" firstAttribute="top" secondItem="iUh-Ke-g1U" secondAttribute="bottom" constant="17" id="dZm-qs-96b"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iwh-hz-2aB" secondAttribute="trailing" constant="20" id="j9U-bN-kQG"/>
+                <constraint firstItem="iUh-Ke-g1U" firstAttribute="trailing" secondItem="iwh-hz-2aB" secondAttribute="trailing" id="n5A-LK-fMW"/>
+                <constraint firstItem="iwh-hz-2aB" firstAttribute="leading" secondItem="6Qp-P7-66w" secondAttribute="trailing" constant="30" id="sX0-mv-SrG"/>
+                <constraint firstItem="iUh-Ke-g1U" firstAttribute="leading" secondItem="Cft-Kv-baA" secondAttribute="leading" id="trd-Pi-39E"/>
+                <constraint firstAttribute="bottom" secondItem="eSF-M9-hUM" secondAttribute="bottom" id="w8S-jn-GeI"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="107.8125"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="iwh-hz-2aB">
+            <size key="intrinsicContentSize" width="74" height="74"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="background" width="809" height="809"/>
+        <image name="ic_add_home" width="74" height="74"/>
+        <image name="ic_back" width="9.5" height="16.5"/>
+        <namedColor name="RainyColor">
+            <color red="0.15700000524520874" green="0.28099998831748962" blue="0.38499999046325684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SunnyColor">
+            <color red="0.89803921568627454" green="0.47058823529411764" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

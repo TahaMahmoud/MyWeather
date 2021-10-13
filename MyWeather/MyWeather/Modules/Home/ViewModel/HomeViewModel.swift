@@ -82,8 +82,8 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     } */
     func bindWeather() {
         
-        homeInteractor.getWeatherWithCityName(cityName: "Cairo").subscribe { (response) in
-            self.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
+        homeInteractor.getWeatherWithCityName(cityName: "Cairo").subscribe { [weak self] (response) in
+            self?.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
 
             let forecastDays = response.element?.forecast?.forecastday
             var responseDays: [DayCellViewModel] = []
@@ -93,22 +93,22 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
             let currentDay = response.element?.forecast?.forecastday?[0]
             
             for day in forecastDays ?? [] {
-                responseDays.append(DayCellViewModel(dayName: self.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
+                responseDays.append(DayCellViewModel(dayName: self!.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
             }
                
             // Get hours of first Day
             for hour in (currentDay?.hour) ?? [] {
                 
                 // Get Hour Part Only
-                responseHours.append((self.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
+                responseHours.append((self!.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
                 
             }
             
             // print(self.hours)
-            self.days.accept(responseDays)
-            self.hours.accept(responseHours)
+            self?.days.accept(responseDays)
+            self?.hours.accept(responseHours)
             
-            self.getCurrentHour()
+            self?.getCurrentHour()
 
         }.disposed(by: disposeBag)
     }
