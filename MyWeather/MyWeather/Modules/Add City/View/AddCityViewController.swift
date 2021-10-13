@@ -32,7 +32,9 @@ class AddCityViewController: UIViewController {
     }
     
     fileprivate func setupTableView() {
+        citiesSearchResultTableView.backgroundColor = .clear
         citiesSearchResultTableView.registerCellNib(cellClass: CityTableViewCell.self)
+        
     }
 
     fileprivate func bindTableView() {
