@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="326" height="85"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaP-cR-IUB">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaP-cR-IUB" customClass="CustomView" customModule="MyWeather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="326" height="70"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRa-p6-Hp8">
@@ -90,6 +90,11 @@
                             <constraint firstItem="ql7-uI-8ah" firstAttribute="top" secondItem="oRa-p6-Hp8" secondAttribute="bottom" constant="2" id="ogv-wv-8Rl"/>
                             <constraint firstItem="wEs-WO-Gi3" firstAttribute="leading" secondItem="zaP-cR-IUB" secondAttribute="leading" constant="10" id="u5C-FZ-84h"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

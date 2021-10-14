@@ -25,12 +25,10 @@ extension CitiesInteractor {
                     let isDefaultCity: Bool = citiesData.value(forKey: "isDefaultCity") as! Bool
                     
                     self?.cachedCities.append(City(cityID: cityID, cityName: cityName, isDefaultCity: isDefaultCity))
-                
-                    print(cityName)
-                    
+                                    
                 }
-                
-                observer.onNext(self?.cachedCities ?? [])
+                                
+                observer.onNext(self!.cachedCities)
                 
             } catch {
                 print("Error")

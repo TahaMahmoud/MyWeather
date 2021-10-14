@@ -23,7 +23,7 @@ protocol CitiesViewModelInput {
 
 class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
     
-    var cities: BehaviorRelay<[City]> = .init(value: [])
+    // var cities: BehaviorRelay<[City]> = .init(value: [])
     var citiesWeather: BehaviorRelay<[CityDetailsCellViewModel]> = .init(value: [])
 
     private let coordinator: CitiesCoordinator
@@ -56,19 +56,16 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
     
     func bindCachedCities() {
         citiesInteractor.fetchCachedCities().subscribe { [weak self] (response) in
-            self?.cities.accept(response.element ?? [])
-            
+            // self?.cities.accept(response.element ?? [])
+                        
             var cachedCities: [CityDetailsCellViewModel] = []
             
             // Get Weather for each city
-            for city in self?.cities.value ?? [] {
+            for city in response.element ?? [] {
                 // Call Network
-                self?.citiesInteractor.getWeather(cityName: city.cityName).subscribe { [weak self] (cityWeather) in
-                    cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: cityWeather.element?.current?.tempC ?? 0, icon: "https:\(cityWeather.element?.current?.condition?.icon ?? "" )"))
-                }.disposed(by: self!.disposeBag)
+                let cityWeather = self!.citiesInteractor.getWeather(cityName: city.cityName)
+                cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: cityWeather.current?.tempC ?? 0, icon: "https:\(cityWeather.current?.condition?.icon ?? "" )"))
             }
-            
-            print(response)
             
             self?.citiesWeather.accept(cachedCities)
             

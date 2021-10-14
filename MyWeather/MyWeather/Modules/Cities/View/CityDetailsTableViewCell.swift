@@ -32,5 +32,7 @@ class CityDetailsTableViewCell: UITableViewCell {
         guard let imageURL = URL(string: viewModel.icon) else {return}
         self.iconImageView.kf.setImage(with: imageURL)
         self.tempLabel.text = "\(viewModel.currentTemp)"
+        
+        self.backgroundColor = .clear
     }
 }

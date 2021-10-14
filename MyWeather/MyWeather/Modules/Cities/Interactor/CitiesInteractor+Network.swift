@@ -11,7 +11,8 @@ import RxSwift
 protocol CitiesInteractorProtocol: class {
     
     // Network Requests
-    func getWeather(cityName: String) -> Observable<(HomeModel)>
+    func getWeather(cityName: String) -> HomeModel
+    // func getWeather(cityName: String) -> Observable<(HomeModel)>
     // func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
@@ -31,11 +32,12 @@ class CitiesInteractor: CitiesInteractorProtocol {
         self.coreDataManager = CoreDataManager()
     }
     
-    func getWeather(cityName: String) -> Observable<(HomeModel)> {
+    /*func getWeather(cityName: String) -> (HomeModel)> {
         return Observable.create {[weak self] (observer) -> Disposable in
             self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
                 switch result {
                 case .success(let value):
+                    print(value)
                     observer.onNext((value))
                 case .failure(let error):
                     print(error)
@@ -44,6 +46,19 @@ class CitiesInteractor: CitiesInteractorProtocol {
             }
             return Disposables.create()
         }
+    }*/
+    
+    func getWeather(cityName: String) -> HomeModel {
+        networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
+            switch result {
+                case .success(let value):
+                    return value
+                case .failure(let error):
+                    print(error)
+                    return HomeModel(location: nil, current: nil, forecast: nil)
+            }
+        }
+        
     }
 
 }
