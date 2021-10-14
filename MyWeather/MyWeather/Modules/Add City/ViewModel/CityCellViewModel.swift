@@ -13,6 +13,5 @@ class CityCellViewModel  {
     init(cityName: String) {
         self.cityName = cityName
     }
-    
-    
+
 }

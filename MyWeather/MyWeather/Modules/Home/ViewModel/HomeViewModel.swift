@@ -20,7 +20,7 @@ protocol HomeViewModelOutput {
 protocol HomeViewModelInput {
     
     func viewDidLoad()
-    func addCityPressed()
+    func citiesPressed()
     func settingsPressed()
     
 }
@@ -51,8 +51,8 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         
     }
             
-    func addCityPressed() {
-        coordinator.navigateToAddCity()
+    func citiesPressed() {
+        coordinator.navigateToCities()
     }
 
     func settingsPressed() {

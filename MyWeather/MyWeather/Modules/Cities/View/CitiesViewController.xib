@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CitiesViewController" customModule="MyWeather" customModuleProvider="target">
             <connections>
+                <outlet property="citiesTableView" destination="n92-Ne-jYQ" id="cwq-ZK-vGu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,6 +39,9 @@
                         <constraint firstAttribute="height" constant="27" id="AIl-F5-FOf"/>
                     </constraints>
                     <state key="normal" backgroundImage="ic_back"/>
+                    <connections>
+                        <action selector="backPressed:" destination="-1" eventType="touchUpInside" id="Lyk-vr-8aT"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CITIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qp-P7-66w">
                     <rect key="frame" x="66" y="58" width="268" height="35"/>
@@ -79,6 +83,9 @@
                             <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addCityPressed:" destination="-1" eventType="touchUpInside" id="nXw-9X-MoY"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

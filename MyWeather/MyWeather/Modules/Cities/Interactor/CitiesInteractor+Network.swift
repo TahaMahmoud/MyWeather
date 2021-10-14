@@ -21,7 +21,7 @@ protocol CitiesInteractorProtocol: class {
 
 class CitiesInteractor: CitiesInteractorProtocol {
     
-    var cachedCities: [City] = [City]()
+    var cachedCities: [City] = []
 
     var networkManager: AlamofireManager
     var coreDataManager: CoreDataManager

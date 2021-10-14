@@ -6,10 +6,19 @@
 //
 
 import UIKit
+import RxSwift
 
 class CityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityNameLabel: UILabel!
+    
+    @IBOutlet weak var addButton: CustomButton!
+    
+    let disposeBag = DisposeBag()
+
+    var addButtonTap: Observable<Void>{
+        return self.addButton.rx.tap.asObservable()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,10 +34,6 @@ class CityTableViewCell: UITableViewCell {
     func configure(_ viewModel: CityCellViewModel) {
         cityNameLabel.text = viewModel.cityName
         self.backgroundColor = .clear
-    }
-
-    @IBAction func addCityPressed(_ sender: Any) {
-        
     }
     
 }

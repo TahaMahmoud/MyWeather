@@ -26,11 +26,14 @@ extension CitiesInteractor {
                     
                     self?.cachedCities.append(City(cityID: cityID, cityName: cityName, isDefaultCity: isDefaultCity))
                 
+                    print(cityName)
+                    
                 }
                 
                 observer.onNext(self?.cachedCities ?? [])
                 
             } catch {
+                print("Error")
                 observer.onNext([])
             }
             

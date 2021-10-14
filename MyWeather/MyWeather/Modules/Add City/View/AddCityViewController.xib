@@ -43,6 +43,9 @@
                         <constraint firstAttribute="height" constant="27" id="DlM-jn-bgY"/>
                     </constraints>
                     <state key="normal" backgroundImage="ic_back"/>
+                    <connections>
+                        <action selector="backToCitiesPressed:" destination="-1" eventType="touchUpInside" id="TEh-NG-Nqy"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD CITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wea-Jx-afp">
                     <rect key="frame" x="66" y="58" width="282" height="53"/>
@@ -101,7 +104,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="75" estimatedRowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kVS-CV-Vzb">
-                    <rect key="frame" x="20" y="217" width="374" height="471"/>
+                    <rect key="frame" x="20" y="217" width="374" height="526"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7q-5Y-ZYf" customClass="CustomView" customModule="MyWeather" customModuleProvider="target">
@@ -158,12 +161,12 @@
                         <constraint firstAttribute="height" constant="20" id="Vr6-Dg-bUM"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                    <color key="textColor" red="0.40503260489999998" green="0.35893708470000002" blue="0.38820147510000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.42144691940000001" green="0.50419968370000001" blue="0.6003105044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzP-2w-AJi">
                     <rect key="frame" x="20" y="753" width="374" height="1"/>
-                    <color key="backgroundColor" red="0.43601793049999998" green="0.40457785130000001" blue="0.40381267669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="5Zs-AL-8Mi"/>
                     </constraints>
@@ -197,7 +200,7 @@
                 <constraint firstItem="z7q-5Y-ZYf" firstAttribute="top" secondItem="Xsy-Ao-B9k" secondAttribute="bottom" constant="10" id="s7q-wf-A3b"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wea-Jx-afp" secondAttribute="trailing" constant="66" id="s9A-pC-B7v"/>
                 <constraint firstItem="kVS-CV-Vzb" firstAttribute="top" secondItem="js1-sK-OEe" secondAttribute="bottom" constant="25" id="unP-qh-aEk"/>
-                <constraint firstItem="HzP-2w-AJi" firstAttribute="top" secondItem="kVS-CV-Vzb" secondAttribute="bottom" constant="65" id="wkX-RN-TMH"/>
+                <constraint firstItem="HzP-2w-AJi" firstAttribute="top" secondItem="kVS-CV-Vzb" secondAttribute="bottom" constant="10" id="wkX-RN-TMH"/>
             </constraints>
             <point key="canvasLocation" x="124.6376811594203" y="115.84821428571428"/>
         </view>

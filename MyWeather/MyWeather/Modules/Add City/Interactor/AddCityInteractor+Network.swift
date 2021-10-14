@@ -16,6 +16,7 @@ protocol AddCityInteractorProtocol: class {
 
     // CoreData Requests
     func addNewCity(city: City) -> Observable<Bool>
+    func fetchLastCity() -> Observable<City>
 
 }
 

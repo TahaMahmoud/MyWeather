@@ -36,4 +36,34 @@ extension AddCityInteractor {
         
     }
     
+    func fetchLastCity() -> Observable<City> {
+        return Observable.create {[weak self] (observer) -> Disposable in
+
+            do {
+
+                let result = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
+                var lastCity: City = City(cityID: 0, cityName: "", isDefaultCity: false)
+                
+                if result?.count ?? 0 > 0 {
+                    let lastCityResult = result?.last as! NSManagedObject
+                    
+                    let cityID: Int = lastCityResult.value(forKey: "cityID") as! Int
+                    let cityName: String = lastCityResult.value(forKey: "cityName") as! String
+                    let isDefaultCity: Bool = lastCityResult.value(forKey: "isDefaultCity") as! Bool
+                    
+                    lastCity = City(cityID: cityID, cityName: cityName, isDefaultCity: isDefaultCity)
+
+                }
+                
+                observer.onNext(lastCity)
+
+            } catch {
+                observer.onError(error)
+            }
+            
+            return Disposables.create()
+        }
+            
+    }
+
 }

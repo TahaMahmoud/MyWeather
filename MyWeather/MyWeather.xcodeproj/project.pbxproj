@@ -263,8 +263,8 @@
 		04540DBA2701CA0400B34367 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				04542D5227145E8F0007349B /* Cities */,
 				04542D5127145E890007349B /* Add City */,
+				04542D5227145E8F0007349B /* Cities */,
 				04C3D47F270AF6BE00A876B0 /* Home */,
 				046BB0EB2701D3E70007E43A /* OnBoarding */,
 			);

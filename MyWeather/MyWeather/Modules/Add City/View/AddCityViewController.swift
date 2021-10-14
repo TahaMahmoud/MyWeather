@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import GSMessages
 
 class AddCityViewController: UIViewController {
     
@@ -25,10 +26,16 @@ class AddCityViewController: UIViewController {
 
         bindSearchTextField()
         bindTableView()
+        
+        bindMessages()
     }
 
     @IBAction func selectCurrentLocationPressed(_ sender: Any) {
         
+    }
+    
+    @IBAction func backToCitiesPressed(_ sender: Any) {
+        viewModel.backToCities()
     }
     
     fileprivate func setupTableView() {
@@ -45,6 +52,15 @@ class AddCityViewController: UIViewController {
                 self.citiesSearchResultTableView.isHidden = false
                 let indexPath = IndexPath(row: row, section: 0)
                 cell.configure(self.viewModel.cityViewModelAtIndexPath(indexPath))
+                
+                //Subscribe to the tap using the proper disposeBag
+                cell.addButtonTap
+                    .subscribe(onNext:{
+                        print("Selected City = \(element.cityName)")
+                        self.viewModel.addCity(cityName: element.cityName)
+                    })
+                    .disposed(by: cell.disposeBag) //Notice it's using the cell's disposableBag and not self.disposeBag
+
             }
             .disposed(by: disposeBag)
     }
@@ -58,4 +74,24 @@ class AddCityViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 
+    func bindMessages() {
+        
+        viewModel.successMessage.subscribe { [weak self] message in
+            self?.showSuccessMessage(message: message)
+        }.disposed(by: disposeBag)
+        
+        viewModel.errorMessage.subscribe { [weak self] message in
+            self?.showErrorMessage(message: message)
+        }.disposed(by: disposeBag)
+        
+    }
+    
+    func showSuccessMessage(message: String) {
+        self.showMessage(message, type: .success)
+    }
+    
+    func showErrorMessage(message: String) {
+        self.showMessage(message, type: .error)
+    }
+    
 }

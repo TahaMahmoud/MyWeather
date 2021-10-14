@@ -10,7 +10,7 @@ import UIKit
 
 protocol HomeCoordinatorProtocol: class {
     func navigateToSettings()
-    func navigateToAddCity()
+    func navigateToCities()
     
 }
 
@@ -34,13 +34,14 @@ class HomeCoordinator: Coordinator{
 
 extension HomeCoordinator: HomeCoordinatorProtocol {
     
-    func navigateToSettings() {
-        print("Navigated To Settings")
+    func navigateToCities() {
+        let citiesCoordinator = CitiesCoordinator(navigationController: navigationController)
+        citiesCoordinator.start()
     }
     
-    func navigateToAddCity() {
-        let addCityCoordinator = AddCityCoordinator(navigationController: navigationController)
-        addCityCoordinator.start()
+    func navigateToSettings() {
+        /* let settingsCoordinator = SettingsCoordinator(navigationController: navigationController)
+         settingsCoordinator.start() */
     }
 
 }

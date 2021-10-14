@@ -49,8 +49,8 @@ class HomeViewController: UIViewController {
         viewModel.settingsPressed()
     }
     
-    @IBAction func addCityPressed(_ sender: Any) {
-        viewModel.addCityPressed()
+    @IBAction func citiesPressed(_ sender: Any) {
+        viewModel.citiesPressed()
     }
 
     private func setupHoursPickerView() {

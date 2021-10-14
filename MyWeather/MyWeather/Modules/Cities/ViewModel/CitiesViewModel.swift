@@ -64,9 +64,11 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
             for city in self?.cities.value ?? [] {
                 // Call Network
                 self?.citiesInteractor.getWeather(cityName: city.cityName).subscribe { [weak self] (cityWeather) in
-                    cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: cityWeather.element?.current?.tempC ?? 0, icon: cityWeather.element?.current?.condition?.icon ?? ""))
+                    cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: cityWeather.element?.current?.tempC ?? 0, icon: "https:\(cityWeather.element?.current?.condition?.icon ?? "" )"))
                 }.disposed(by: self!.disposeBag)
             }
+            
+            print(response)
             
             self?.citiesWeather.accept(cachedCities)
             

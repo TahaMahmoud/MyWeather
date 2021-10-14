@@ -10,6 +10,8 @@ target 'MyWeather' do
     pod 'Kingfisher'
     pod 'RxSwift'
     pod 'RxCocoa'
+    pod "GSMessages"
+    pod 'BulletinBoard'
 
   target 'MyWeatherTests' do
     inherit! :search_paths

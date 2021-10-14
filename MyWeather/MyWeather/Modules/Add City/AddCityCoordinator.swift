@@ -34,7 +34,7 @@ class AddCityCoordinator: Coordinator{
 extension AddCityCoordinator: AddCityCoordinatorProtocol {
     
     func navigateToCities() {
-        print("Navigated To Cities")
+        navigationController.popViewController(animated: true)
     }
     
 }

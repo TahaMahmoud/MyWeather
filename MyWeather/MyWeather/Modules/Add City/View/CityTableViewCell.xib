@@ -53,9 +53,6 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addCityPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wcK-3D-8lT"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97227984670000001" green="0.9804111123" blue="0.98422473669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -82,6 +79,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addButton" destination="JMh-01-YYa" id="vCb-Ru-ogf"/>
                 <outlet property="cityNameLabel" destination="atn-oA-Mgq" id="urB-Rl-Deg"/>
             </connections>
             <point key="canvasLocation" x="160.1449275362319" y="125.22321428571428"/>

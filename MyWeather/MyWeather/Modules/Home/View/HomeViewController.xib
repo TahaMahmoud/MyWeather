@@ -68,7 +68,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="addCityPressed:" destination="-1" eventType="touchUpInside" id="jg7-Z9-zf7"/>
+                        <action selector="citiesPressed:" destination="-1" eventType="touchUpInside" id="lf2-M5-NUc"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwg-oH-DsJ">

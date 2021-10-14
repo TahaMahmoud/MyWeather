@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CityDetailsTableViewCell: UITableViewCell {
 
@@ -26,7 +27,10 @@ class CityDetailsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(cityName: String, icon: String, temp: Double) {
-        
+    func configure(viewModel: CityDetailsCellViewModel) {
+        cityLabel.text = viewModel.cityName
+        guard let imageURL = URL(string: viewModel.icon) else {return}
+        self.iconImageView.kf.setImage(with: imageURL)
+        self.tempLabel.text = "\(viewModel.currentTemp)"
     }
 }

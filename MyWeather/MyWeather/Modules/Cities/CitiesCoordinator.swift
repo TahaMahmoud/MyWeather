@@ -35,7 +35,7 @@ class CitiesCoordinator: Coordinator {
 extension CitiesCoordinator: CitiesCoordinatorProtocol {
     
     func navigateToHome() {
-        print("Navigated To Settings")
+        navigationController.popViewController(animated: true)
     }
     
     func navigateToAddCity() {
