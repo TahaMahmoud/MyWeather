@@ -72,21 +72,22 @@ extension CitiesInteractor {
         return Observable.create {[weak self] (observer) -> Disposable in
 
             do {
+                
                 // Set The Current Default City key {isDefaultCity} to false
-                (self?.coreDataManager.fetchCitiesRequest)!.predicate = NSPredicate(format: "isDefaultCity = %@", true)
                 var result = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
 
-                if result?.count ?? 0 > 0 {
-                    let oldCity = result?[0] as! NSManagedObject
-                    oldCity.setValue(false, forKey: "isDefaultCity")
+                for city in result as? [NSManagedObject] ?? [] {
+                    
+                    if city.value(forKey: "isDefaultCity") as? Bool ?? false {
+                        city.setValue(false, forKey: "isDefaultCity")
+                    }
+                    
+                    if city.value(forKey: "cityID") as? Int ?? 0 == cityID {
+                        city.setValue(true, forKey: "isDefaultCity")
+                    }
+                    
                 }
                 
-                (self?.coreDataManager.fetchCitiesRequest)!.predicate = NSPredicate(format: "cityID = %@", "\(cityID)")
-                result = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
-
-                let newCity = result?[0] as! NSManagedObject
-                newCity.setValue(true, forKey: "isDefaultCity")
-
                 self?.coreDataManager.saveContext()
 
                 observer.onNext(true)

@@ -42,13 +42,10 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     init(homeInteractor: HomeInteractorProtocol = HomeInteractor(networkManager: AlamofireManager()),coordinator: HomeCoordinator) {
         self.homeInteractor = homeInteractor
         self.coordinator = coordinator
-        // fillHoursData()
-        // getWeather()
-        bindWeather()
     }
     
     func viewDidLoad() {
-        
+        bindWeather()
     }
             
     func citiesPressed() {
@@ -86,7 +83,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
         homeInteractor.getDefaultCity().subscribe { [weak self] (defaultCity) in
             
             // Get Weather of Default City
-            self?.homeInteractor.getWeatherWithCityName(cityName: defaultCity.element ?? "Cairo").subscribe { [weak self] (response) in
+            self?.homeInteractor.getWeatherWithCityName(cityName: defaultCity.element ?? "").subscribe { [weak self] (response) in
                 self?.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
 
                 let forecastDays = response.element?.forecast?.forecastday

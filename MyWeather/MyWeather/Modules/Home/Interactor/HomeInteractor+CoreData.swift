@@ -18,13 +18,16 @@ extension HomeInteractor {
 
             do {
                 // Set The Current Default City key {isDefaultCity} to false
-                //(self?.coreDataManager.fetchCitiesRequest)!.predicate = NSPredicate(format: "isDefaultCity = %@", true)
                 let result = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
 
-                if result?.count ?? 0 > 0 {
-                    currentDefaultCityName = (result?[0] as! NSManagedObject).value(forKey: "cityName") as! String
-                }
+                for city in result as? [NSManagedObject] ?? [] {
                 
+                    if city.value(forKey: "isDefaultCity") as? Bool ?? false {
+                        currentDefaultCityName = city.value(forKey: "cityName") as! String
+                    }
+                    
+                }
+                                
                 observer.onNext(currentDefaultCityName)
                 
             } catch {

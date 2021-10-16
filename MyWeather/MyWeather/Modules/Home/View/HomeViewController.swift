@@ -31,9 +31,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel.viewDidLoad()
-        
+                
         setupHoursPickerView()
 
         setupTableView()
@@ -45,6 +43,10 @@ class HomeViewController: UIViewController {
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.viewDidLoad()
+    }
+    
     @IBAction func settingsPressed(_ sender: Any) {
         viewModel.settingsPressed()
     }
