@@ -10,7 +10,7 @@ target 'MyWeather' do
     pod 'Kingfisher'
     pod 'RxSwift'
     pod 'RxCocoa'
-    pod "GSMessages"
+    pod 'GSMessages'
     pod 'BulletinBoard'
 
   target 'MyWeatherTests' do

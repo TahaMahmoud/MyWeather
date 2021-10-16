@@ -77,29 +77,38 @@ class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
 
     func addCity(cityName: String) {
         
-        var lastCityID = 0
-        
-        // Fetch last city id to create city with new id
-        addCityInteractor.fetchLastCity().subscribe { [weak self] (response) in
-            lastCityID = response.element?.cityID ?? 0
-            
-            let newCity = City(cityID: lastCityID + 1, cityName: cityName, isDefaultCity: false)
-            
-            self?.addCityInteractor.addNewCity(city: newCity).subscribe { [weak self] (addCityResponse) in
-                if addCityResponse.element ?? false {
-                    self?.successMessage.onNext("City Added Successfully")
-                }
-                else {
-                    self?.errorMessage.onNext("Something Went Wrong")
-                }
-            }.disposed(by: self!.disposeBag)
-            
+        // Check Already Exist City
+        addCityInteractor.checkCityExist(cityName: cityName).subscribe { [weak self] (isExist) in
+            if isExist.element ?? false {
+                self?.errorMessage.onNext("City Already Exist")
+            }
+            else {
+                var lastCityID = 0
+                
+                // Fetch last city id to create city with new id
+                self?.addCityInteractor.fetchLastCity().subscribe { [weak self] (response) in
+                    lastCityID = response.element?.cityID ?? 0
+                    
+                    let newCity = City(cityID: lastCityID + 1, cityName: cityName, isDefaultCity: false)
+                    
+                    self?.addCityInteractor.addNewCity(city: newCity).subscribe { [weak self] (addCityResponse) in
+                        if addCityResponse.element ?? false {
+                            self?.successMessage.onNext("City Added Successfully")
+                        }
+                        else {
+                            self?.errorMessage.onNext("Something Went Wrong")
+                        }
+                    }.disposed(by: self!.disposeBag)
+                    
+                }.disposed(by: self!.disposeBag)
+
+            }
         }.disposed(by: disposeBag)
-        
+                
     }
 
     func backToCities() {
         coordinator.navigateToCities()
     }
-
+    
 }

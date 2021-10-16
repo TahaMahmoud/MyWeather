@@ -15,12 +15,13 @@ protocol AddCityInteractorProtocol: class {
     // func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
+    func checkCityExist(cityName: String) -> Observable<Bool>
     func addNewCity(city: City) -> Observable<Bool>
     func fetchLastCity() -> Observable<City>
 
 }
 
-class AddCityInteractor: AddCityInteractorProtocol {   
+class AddCityInteractor: AddCityInteractorProtocol {
     
     var networkManager: AlamofireManager
     var coreDataManager: CoreDataManager

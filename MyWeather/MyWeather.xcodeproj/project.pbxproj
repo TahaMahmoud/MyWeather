@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04407DF6271ADD7300571592 /* CitiesViewController+TableCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04407DF5271ADD7300571592 /* CitiesViewController+TableCellAction.swift */; };
 		0446E733270C8AAF005343D4 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446E732270C8AAF005343D4 /* Date.swift */; };
 		044E68952701F1F4005F7ACA /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046BB0F12701E1BB0007E43A /* Lato-Black.ttf */; };
 		044E68992701F1FE005F7ACA /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 046BB0F32701E1BB0007E43A /* Lato-Light.ttf */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04407DF5271ADD7300571592 /* CitiesViewController+TableCellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesViewController+TableCellAction.swift"; sourceTree = "<group>"; };
 		0446E732270C8AAF005343D4 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		04540D7B2701C9A300B34367 /* MyWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04540D7E2701C9A300B34367 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				045635CE2717046E008BFB14 /* CitiesViewController.xib */,
 				045635D4271709E4008BFB14 /* CityDetailsTableViewCell.swift */,
 				045635D5271709E4008BFB14 /* CityDetailsTableViewCell.xib */,
+				04407DF5271ADD7300571592 /* CitiesViewController+TableCellAction.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,6 +851,7 @@
 				045635EB27171037008BFB14 /* CitiesInteractor+CoreData.swift in Sources */,
 				04FA4FD8270C3DAA00606300 /* HomeModel.swift in Sources */,
 				046BB1142701EDAE0007E43A /* OnBoardingViewModel.swift in Sources */,
+				04407DF6271ADD7300571592 /* CitiesViewController+TableCellAction.swift in Sources */,
 				04C3D4AD270B060E00A876B0 /* CustomView.swift in Sources */,
 				046BB0DF2701D3420007E43A /* Constants.swift in Sources */,
 				04C3D4AC270B060E00A876B0 /* CustomButton.swift in Sources */,

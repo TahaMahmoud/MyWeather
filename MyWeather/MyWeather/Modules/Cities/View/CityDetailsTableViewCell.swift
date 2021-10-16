@@ -18,7 +18,7 @@ class CityDetailsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,4 +35,5 @@ class CityDetailsTableViewCell: UITableViewCell {
         
         self.backgroundColor = .clear
     }
+
 }

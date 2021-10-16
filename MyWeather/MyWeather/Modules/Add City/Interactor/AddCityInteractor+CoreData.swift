@@ -65,5 +65,38 @@ extension AddCityInteractor {
         }
             
     }
+    
+    func checkCityExist(cityName: String) -> Observable<Bool> {
+
+        var isExist = false
+        
+        return Observable.create {[weak self] (observer) -> Disposable in
+
+            do {
+
+                let result = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
+                
+                if result?.count ?? 0 > 0 {
+                                        
+                    for city in result as? [NSManagedObject] ?? []{
+                        let currentCityName: String = city.value(forKey: "cityName") as! String
+                        
+                        if cityName == currentCityName {
+                            isExist = true
+                        }
+                    }
+                }
+                
+                observer.onNext(isExist)
+
+            } catch {
+                observer.onError(error)
+            }
+            
+            return Disposables.create()
+        }
+
+    }
+
 
 }

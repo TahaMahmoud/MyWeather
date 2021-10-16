@@ -19,6 +19,8 @@ protocol CitiesViewModelInput {
     func addCityPressed()
     func backPressed()
     
+    func removeCity(indexPath: IndexPath)
+    
 }
 
 class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
@@ -35,13 +37,12 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
         self.citiesInteractor = citiesInteractor
         self.coordinator = coordinator
         
-        bindCachedCities()
     }
     
     func viewDidLoad() {
-        
+        bindCachedCities()
     }
-            
+    
     func addCityPressed() {
         coordinator.navigateToAddCity()
     }
@@ -55,20 +56,44 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
     }
     
     func bindCachedCities() {
+        var cachedCities: [CityDetailsCellViewModel] = []
+        
+        // Remove Old Data
+        var array = self.citiesWeather.value
+        array.removeAll()
+        self.citiesWeather.accept(array)
+        
         citiesInteractor.fetchCachedCities().subscribe { [weak self] (response) in
-            // self?.cities.accept(response.element ?? [])
                         
-            var cachedCities: [CityDetailsCellViewModel] = []
-            
             // Get Weather for each city
             for city in response.element ?? [] {
-                // Call Network
-                let cityWeather = self!.citiesInteractor.getWeather(cityName: city.cityName)
-                cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: cityWeather.current?.tempC ?? 0, icon: "https:\(cityWeather.current?.condition?.icon ?? "" )"))
+                self!.citiesInteractor.getWeather(cityName: city.cityName).subscribe { [weak self] (weatherResponse) in
+                    cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: weatherResponse.element?.current?.tempC ?? 0, icon: "https:\(weatherResponse.element?.current?.condition?.icon ?? "" )"))
+                    self?.citiesWeather.accept(cachedCities)
+                }.disposed(by: self!.disposeBag)
             }
-            
-            self?.citiesWeather.accept(cachedCities)
-            
+        
+        }.disposed(by: disposeBag)
+    }
+    
+    func removeCity(indexPath: IndexPath) {
+        
+        var cities = self.citiesWeather.value
+
+        let removedCityID = cities[indexPath.row].cityID
+    
+        citiesInteractor.removeCity(cityID: removedCityID).subscribe { (response) in
+            if response.element ?? false {
+                // Remove City from Data Source
+                
+                cities.remove(at: indexPath.row)
+
+                self.citiesWeather.accept(cities)
+
+            }
+            else {
+                print(response.error)
+            }
         }.disposed(by: disposeBag)
     }
 

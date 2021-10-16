@@ -14,7 +14,7 @@ class CityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var addButton: CustomButton!
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
 
     var addButtonTap: Observable<Void>{
         return self.addButton.rx.tap.asObservable()
@@ -36,4 +36,9 @@ class CityTableViewCell: UITableViewCell {
         self.backgroundColor = .clear
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        disposeBag = DisposeBag()
+    }
 }

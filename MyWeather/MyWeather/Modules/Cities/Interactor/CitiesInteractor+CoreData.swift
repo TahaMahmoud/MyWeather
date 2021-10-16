@@ -40,4 +40,31 @@ extension CitiesInteractor {
             
     }
 
+    func removeCity(cityID: Int) -> Observable<Bool> {
+        return Observable.create {[weak self] (observer) -> Disposable in
+
+            (self?.coreDataManager.fetchCitiesRequest)!.predicate = NSPredicate(format: "cityID = %@", "\(cityID)")
+            
+             do {
+                let fetchedCities = try self?.coreDataManager.managedContext.fetch((self?.coreDataManager.fetchCitiesRequest)!)
+                 
+                let cityToDelete = fetchedCities?[0] as! NSManagedObject
+                
+                self?.coreDataManager.managedContext.delete(cityToDelete)
+                            
+                self?.coreDataManager.saveContext()
+                
+                observer.onNext(true)
+
+             }
+             catch {
+                print(error)
+                observer.onNext(false)
+             }
+
+            return Disposables.create()
+        }
+
+    }
+
 }

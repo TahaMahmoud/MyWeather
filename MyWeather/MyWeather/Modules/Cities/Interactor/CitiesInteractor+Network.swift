@@ -11,12 +11,13 @@ import RxSwift
 protocol CitiesInteractorProtocol: class {
     
     // Network Requests
-    func getWeather(cityName: String) -> HomeModel
+    func getWeather(cityName: String) -> Observable<HomeModel>
     // func getWeather(cityName: String) -> Observable<(HomeModel)>
     // func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
     func fetchCachedCities() -> Observable<[City]>
+    func removeCity(cityID: Int) -> Observable<Bool>
     
 }
 
@@ -31,13 +32,12 @@ class CitiesInteractor: CitiesInteractorProtocol {
         self.networkManager = networkManager
         self.coreDataManager = CoreDataManager()
     }
-    
-    /*func getWeather(cityName: String) -> (HomeModel)> {
+        
+    func getWeather(cityName: String) -> Observable<HomeModel> {
         return Observable.create {[weak self] (observer) -> Disposable in
             self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
-                switch result {
+            switch result {
                 case .success(let value):
-                    print(value)
                     observer.onNext((value))
                 case .failure(let error):
                     print(error)
@@ -45,18 +45,6 @@ class CitiesInteractor: CitiesInteractorProtocol {
                 }
             }
             return Disposables.create()
-        }
-    }*/
-    
-    func getWeather(cityName: String) -> HomeModel {
-        networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithCityName(cityName: cityName)) { (result) in
-            switch result {
-                case .success(let value):
-                    return value
-                case .failure(let error):
-                    print(error)
-                    return HomeModel(location: nil, current: nil, forecast: nil)
-            }
         }
         
     }

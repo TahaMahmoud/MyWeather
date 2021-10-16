@@ -55,7 +55,7 @@ class AddCityViewController: UIViewController {
                 
                 //Subscribe to the tap using the proper disposeBag
                 cell.addButtonTap
-                    .subscribe(onNext:{
+                    .subscribe(onNext: {
                         print("Selected City = \(element.cityName)")
                         self.viewModel.addCity(cityName: element.cityName)
                     })
