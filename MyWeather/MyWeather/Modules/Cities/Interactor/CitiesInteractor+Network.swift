@@ -19,9 +19,10 @@ protocol CitiesInteractorProtocol: class {
     func fetchCachedCities() -> Observable<[City]>
     func removeCity(cityID: Int) -> Observable<Bool>
     
+    func setDefaultCity(cityID: Int) -> Observable<Bool>
 }
 
-class CitiesInteractor: CitiesInteractorProtocol {
+class CitiesInteractor: CitiesInteractorProtocol {    
     
     var cachedCities: [City] = []
 

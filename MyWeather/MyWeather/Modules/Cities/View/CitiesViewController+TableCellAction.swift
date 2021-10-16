@@ -33,9 +33,9 @@ extension CitiesViewController: UITableViewDelegate {
             -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] (_, _, completionHandler) in
-            // self?.viewModel.removeCity(indexPath: indexPath)
             self?.selectedIndexPath = indexPath
             self?.deleteBulletinManager.showBulletin(above: self!)
+            
             completionHandler(true)
         }
         

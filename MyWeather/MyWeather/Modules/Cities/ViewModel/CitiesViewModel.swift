@@ -20,7 +20,8 @@ protocol CitiesViewModelInput {
     func backPressed()
     
     func removeCity(indexPath: IndexPath)
-    
+    func setDefaultCity(indexPath: IndexPath)
+
 }
 
 class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
@@ -90,6 +91,22 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
 
                 self.citiesWeather.accept(cities)
 
+            }
+            else {
+                print(response.error)
+            }
+        }.disposed(by: disposeBag)
+    }
+
+    func setDefaultCity(indexPath: IndexPath) {
+        
+        let cities = self.citiesWeather.value
+        let newDefaultCityID = cities[indexPath.row].cityID
+
+        citiesInteractor.setDefaultCity(cityID: newDefaultCityID).subscribe { (response) in
+            if response.element ?? false {
+                // Remove City from Data Source
+                print("Default City Changed")
             }
             else {
                 print(response.error)

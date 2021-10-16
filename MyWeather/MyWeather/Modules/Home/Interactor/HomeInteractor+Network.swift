@@ -15,16 +15,19 @@ protocol HomeInteractorProtocol: class {
     func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
-    // func getDefaultCity() -> Observable<(String)>
+    func getDefaultCity() -> Observable<(String)>
 
 }
 
-class HomeInteractor: HomeInteractorProtocol {
+class HomeInteractor: HomeInteractorProtocol {    
         
     var networkManager: AlamofireManager
     
+    var coreDataManager: CoreDataManager
+    
     init(networkManager: AlamofireManager) {
         self.networkManager = networkManager
+        self.coreDataManager = CoreDataManager()
     }
 
     func getWeatherWithCityName(cityName: String) -> Observable<(HomeModel)> {

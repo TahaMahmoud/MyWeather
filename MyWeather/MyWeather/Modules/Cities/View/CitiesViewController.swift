@@ -127,12 +127,11 @@ class CitiesViewController: UIViewController {
         setDefaultPage.appearance.actionButtonTitleColor = .white
     
         setDefaultPage.actionHandler = { [weak self] (item: BLTNActionItem) in
-            print("Set Default button tapped")
+            self?.viewModel.setDefaultCity(indexPath: self!.selectedIndexPath)
             self?.setDefaultBulletinManager.dismissBulletin(animated: true)
         }
 
         setDefaultPage.alternativeHandler = { [weak self] (item: BLTNActionItem) in
-            print("Back button tapped")
             self?.setDefaultBulletinManager.dismissBulletin(animated: true)
         }
 
