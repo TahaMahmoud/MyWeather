@@ -12,6 +12,9 @@ import CoreData
 extension CitiesInteractor {
     
     func fetchCachedCities() -> Observable<[City]> {
+        
+        cachedCities.removeAll()
+        
         return Observable.create {[weak self] (observer) -> Disposable in
 
             do {

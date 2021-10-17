@@ -44,6 +44,7 @@
 		045635E127170EED008BFB14 /* CityDetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045635E027170EED008BFB14 /* CityDetailsCellViewModel.swift */; };
 		045635E627170F76008BFB14 /* CitiesInteractor+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045635E527170F76008BFB14 /* CitiesInteractor+Network.swift */; };
 		045635EB27171037008BFB14 /* CitiesInteractor+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045635EA27171037008BFB14 /* CitiesInteractor+CoreData.swift */; };
+		04621D55271C4584000C9D24 /* HomeViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04621D54271C4584000C9D24 /* HomeViewController+Location.swift */; };
 		046BB0D32701D2F40007E43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D22701D2F40007E43A /* UITableView.swift */; };
 		046BB0DF2701D3420007E43A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0D82701D3410007E43A /* Constants.swift */; };
 		046BB0E42701D3420007E43A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046BB0DE2701D3420007E43A /* AppCoordinator.swift */; };
@@ -132,6 +133,7 @@
 		045635E027170EED008BFB14 /* CityDetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailsCellViewModel.swift; sourceTree = "<group>"; };
 		045635E527170F76008BFB14 /* CitiesInteractor+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesInteractor+Network.swift"; sourceTree = "<group>"; };
 		045635EA27171037008BFB14 /* CitiesInteractor+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CitiesInteractor+CoreData.swift"; sourceTree = "<group>"; };
+		04621D54271C4584000C9D24 /* HomeViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Location.swift"; sourceTree = "<group>"; };
 		046BB0D22701D2F40007E43A /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		046BB0D82701D3410007E43A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		046BB0DE2701D3420007E43A /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				04C3D484270AF83300A876B0 /* HomeViewController.xib */,
 				04C3D494270B00FC00A876B0 /* DayTableViewCell.swift */,
 				04C3D495270B00FC00A876B0 /* DayTableViewCell.xib */,
+				04621D54271C4584000C9D24 /* HomeViewController+Location.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -863,6 +866,7 @@
 				046BB0D32701D2F40007E43A /* UITableView.swift in Sources */,
 				04FA4FDE270C3E7C00606300 /* HomeInteractor+Network.swift in Sources */,
 				0446E733270C8AAF005343D4 /* Date.swift in Sources */,
+				04621D55271C4584000C9D24 /* HomeViewController+Location.swift in Sources */,
 				04AA56F52716D86C0032CF92 /* Endpoint.swift in Sources */,
 				04AA56F72716D86C0032CF92 /* NetworkError.swift in Sources */,
 				045635C627170436008BFB14 /* CitiesCoordinator.swift in Sources */,
@@ -1059,6 +1063,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2524AB40E0E1AAA403156318 /* Pods-MyWeather.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLBMX2MFLL;
@@ -1079,6 +1084,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 526A0A6165021E97FD321B2C /* Pods-MyWeather.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GLBMX2MFLL;

@@ -65,7 +65,6 @@ class CitiesViewController: UIViewController {
     }
     
     func bindCachedCities() {
-        
         viewModel.citiesWeather
             .bind(to: citiesTableView.rx.items(
                     cellIdentifier: "CityDetailsTableViewCell",
@@ -75,17 +74,16 @@ class CitiesViewController: UIViewController {
                 cell.configure(viewModel: self.viewModel.cityViewModelAtIndexPath(indexPath))
             }
             .disposed(by: disposeBag)
-
     }
 
-    func bindDeleteCities() {
+    /* func bindDeleteCities() {
         citiesTableView.rx.itemDeleted
             .subscribe(onNext: { [unowned self] indexPath in
                 print(indexPath.row)
                 //self.data.value.remove(at: indexPath.row)
             })
             .disposed(by: disposeBag)
-    }
+    } */
     
     func setupBulletinManager() {
         deleteBulletinManager.backgroundViewStyle = .dimmed

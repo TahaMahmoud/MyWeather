@@ -29,6 +29,8 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
     // var cities: BehaviorRelay<[City]> = .init(value: [])
     var citiesWeather: BehaviorRelay<[CityDetailsCellViewModel]> = .init(value: [])
 
+    var defaultCityID = 0
+    
     private let coordinator: CitiesCoordinator
     let disposeBag = DisposeBag()
     
@@ -37,7 +39,6 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
     init(citiesInteractor: CitiesInteractorProtocol = CitiesInteractor(networkManager: AlamofireManager()), coordinator: CitiesCoordinator) {
         self.citiesInteractor = citiesInteractor
         self.coordinator = coordinator
-        
     }
     
     func viewDidLoad() {
@@ -60,17 +61,25 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
         var cachedCities: [CityDetailsCellViewModel] = []
         
         // Remove Old Data
-        var array = self.citiesWeather.value
+        var array = citiesWeather.value
         array.removeAll()
-        self.citiesWeather.accept(array)
-        
+        citiesWeather.accept(array)
+
         citiesInteractor.fetchCachedCities().subscribe { [weak self] (response) in
-                        
+            // achedCities.removeAll()
+
             // Get Weather for each city
             for city in response.element ?? [] {
                 self!.citiesInteractor.getWeather(cityName: city.cityName).subscribe { [weak self] (weatherResponse) in
                     cachedCities.append(CityDetailsCellViewModel(cityID: city.cityID, cityName: city.cityName , currentTemp: weatherResponse.element?.current?.tempC ?? 0, icon: "https:\(weatherResponse.element?.current?.condition?.icon ?? "" )"))
+                    
+                    if city.isDefaultCity {
+                        print("Current Default City " + city.cityName)
+                        self?.defaultCityID = city.cityID
+                    }
+
                     self?.citiesWeather.accept(cachedCities)
+                    
                 }.disposed(by: self!.disposeBag)
             }
         
@@ -83,13 +92,22 @@ class CitiesViewModel: CitiesViewModelInput, CitiesViewModelOutput {
 
         let removedCityID = cities[indexPath.row].cityID
     
-        citiesInteractor.removeCity(cityID: removedCityID).subscribe { (response) in
+        citiesInteractor.removeCity(cityID: removedCityID).subscribe { [weak self] (response) in
             if response.element ?? false {
-                // Remove City from Data Source
                 
+                // Check if the removed city is the default city to re-select new default city
+                if removedCityID == self?.defaultCityID {
+                    
+                    // Select first city to be default city
+                    let newCityIndexPath = IndexPath(row: indexPath.row + 1 , section: 0)
+                    print("New Default City " + cities[newCityIndexPath.row].cityName)
+                    self?.setDefaultCity(indexPath: newCityIndexPath)
+                }
+                
+                // Remove City from Data Source
                 cities.remove(at: indexPath.row)
-
-                self.citiesWeather.accept(cities)
+                
+                self?.citiesWeather.accept(cities)
 
             }
             else {

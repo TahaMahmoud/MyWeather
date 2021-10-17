@@ -9,14 +9,20 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import CoreLocation
 
 class HomeViewController: UIViewController {
     
     internal var hours: [String] = []
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     var viewModel: HomeViewModel!
 
+    let locationManager = CLLocationManager()
+
+    var latitude: String = ""
+    var longitude: String  = ""
+    
     @IBOutlet weak var cityNameLabel: UILabel!
     
     @IBOutlet weak var currentWeatherImageView: UIImageView!
@@ -41,6 +47,8 @@ class HomeViewController: UIViewController {
         bindCurrentWeather()
         bindTableView()
         
+        bindRequestLocation()
+
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +69,7 @@ class HomeViewController: UIViewController {
 
     func bindCityName() {
         viewModel.weather.subscribe { [weak self] weather in
+            print(weather.element)
             self?.cityNameLabel.text = weather.element?.location?.name?.uppercased() ?? ""
         }.disposed(by: disposeBag)
     }

@@ -50,7 +50,7 @@ class HomeInteractor: HomeInteractorProtocol {
             self?.networkManager.callRequest(HomeModel.self, endpoint: HomeRequest.getWeatherWithLocation(location: location)) { (result) in
                 switch result {
                 case .success(let value):
-                    observer.onNext((value))
+                    observer.onNext(value)
                 case .failure(let error):
                     print(error)
                     observer.onError(error)

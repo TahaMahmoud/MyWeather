@@ -13,7 +13,6 @@ class CityDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     
     @IBOutlet weak var iconImageView: UIImageView!
-    
     @IBOutlet weak var tempLabel: UILabel!
     
     override func awakeFromNib() {

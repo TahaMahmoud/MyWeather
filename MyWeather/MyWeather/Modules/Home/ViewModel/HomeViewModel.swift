@@ -34,6 +34,8 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
 
     var currentHour: PublishSubject<HourData> = .init()
     
+    var requestLocation: BehaviorRelay<Bool> = .init(value: false)
+
     private let coordinator: HomeCoordinator
     let disposeBag = DisposeBag()
     
@@ -45,7 +47,7 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
     }
     
     func viewDidLoad() {
-        bindWeather()
+        getWeather(latitude: "", longitude: "")
     }
             
     func citiesPressed() {
@@ -77,41 +79,85 @@ class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {
             // print(response)
         }.disposed(by: disposeBag)
     } */
-    func bindWeather() {
+        
+    func getWeather(latitude: String, longitude: String) {
         
         // Fetch Default City
         homeInteractor.getDefaultCity().subscribe { [weak self] (defaultCity) in
+                              
+            if defaultCity.element != "" || ( latitude != "" && longitude != "" ) {
+                
+                if defaultCity.element != "" {
+                    // Get Weather of Default City
+                    self?.homeInteractor.getWeatherWithCityName(cityName: defaultCity.element ?? "").subscribe { [weak self] (response) in
+                        self?.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
+                        
+                        let forecastDays = self?.weather.value.forecast?.forecastday
+                        var responseDays: [DayCellViewModel] = []
+                        
+                        var responseHours: [HourData] = []
+
+                        let currentDay = self?.weather.value.forecast?.forecastday?[0]
+                        
+                        for day in forecastDays ?? [] {
+                            responseDays.append(DayCellViewModel(dayName: self!.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
+                        }
+                           
+                        // Get hours of first Day
+                        for hour in (currentDay?.hour) ?? [] {
+                            
+                            // Get Hour Part Only
+                            responseHours.append((self!.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
+                        }
+                        
+                        // print(self.hours)
+                        self?.days.accept(responseDays)
+                        self?.hours.accept(responseHours)
+                        
+                        self?.getCurrentHour()
+
+                    }.disposed(by: self!.disposeBag)
+                }
+                else {
+                    // Get Weather With Location
+                    let location = latitude + "," + longitude
+                        
+                    self?.homeInteractor.getWeatherWithLocation(location: location).subscribe { [weak self] (response) in
+                        self?.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
+                        
+                        let forecastDays = self?.weather.value.forecast?.forecastday
+                        var responseDays: [DayCellViewModel] = []
+                        
+                        var responseHours: [HourData] = []
+
+                        let currentDay = self?.weather.value.forecast?.forecastday?[0]
+                        
+                        for day in forecastDays ?? [] {
+                            responseDays.append(DayCellViewModel(dayName: self!.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
+                        }
+                           
+                        // Get hours of first Day
+                        for hour in (currentDay?.hour) ?? [] {
+                            
+                            // Get Hour Part Only
+                            responseHours.append((self!.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
+                        }
+                        
+                        // print(self.hours)
+                        self?.days.accept(responseDays)
+                        self?.hours.accept(responseHours)
+                        
+                        self?.getCurrentHour()
+                    }.disposed(by: self!.disposeBag)
+
+                }
+            }
+            else {
+                // No Default City, No Location Exist
+                // Request Location
+                self?.requestLocation.accept(true)
+            }
             
-            // Get Weather of Default City
-            self?.homeInteractor.getWeatherWithCityName(cityName: defaultCity.element ?? "").subscribe { [weak self] (response) in
-                self?.weather.accept(response.element ?? HomeModel(location: nil, current: nil, forecast: nil))
-
-                let forecastDays = response.element?.forecast?.forecastday
-                var responseDays: [DayCellViewModel] = []
-                
-                var responseHours: [HourData] = []
-
-                let currentDay = response.element?.forecast?.forecastday?[0]
-                
-                for day in forecastDays ?? [] {
-                    responseDays.append(DayCellViewModel(dayName: self!.getDayNameBy(stringDate: day.date ?? "" ), temp: day.day?.avgtempC ?? 0, icon: "https:\(day.day?.condition?.icon ?? "")"))
-                }
-                   
-                // Get hours of first Day
-                for hour in (currentDay?.hour) ?? [] {
-                    
-                    // Get Hour Part Only
-                    responseHours.append((self!.getTimeFrom(date: hour.time ?? ""), hour.tempC ?? 0, hour.condition?.text ?? "", "https:\(hour.condition?.icon ?? "")" ))
-                    
-                }
-                
-                // print(self.hours)
-                self?.days.accept(responseDays)
-                self?.hours.accept(responseHours)
-                
-                self?.getCurrentHour()
-
-            }.disposed(by: self!.disposeBag)
         }.disposed(by: disposeBag)
         
     }
