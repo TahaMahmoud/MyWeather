@@ -79,12 +79,12 @@ Using [weatherapi.com](https://www.weatherapi.com)
       * View
       * ViewModel
       * Coordinator
-      * Interactor
    * Home
       * Model
       * View
       * ViewModel
       * Coordinator
+      * Interactor
    * Cities
        * Model
        * View
