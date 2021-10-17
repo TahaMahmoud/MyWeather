@@ -1,6 +1,6 @@
 # MyWeather
 
-MyWeather is a simple iOS application, it retrieves Current Weather Data from free API [weatherapi.com] and display them for the user, and allow the user to view more weather details.
+MyWeather is a simple iOS application, it retrieves Current Weather Data from free API [weatherapi.com] and display it for the user, and allow the user to view more weather details.
 
 Using [weatherapi.com](https://www.weatherapi.com)
 
