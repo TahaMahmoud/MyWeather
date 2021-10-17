@@ -44,7 +44,7 @@ Using [weatherapi.com](https://www.weatherapi.com)
 - Add New City ( Detect Current Location )
 <img src="/Screenshots/AddCityWithLocation.png" width="200" height="400">
 
-- Set Specific City As The Default City 
+- Set Specific City As The Default City [Pending Enahnce UIContextualAction]
 <img src="/Screenshots/SetDefaultCity.png" width="200" height="400">
 
 - Set Specific City As The Default City ( Confirmation )
@@ -53,7 +53,7 @@ Using [weatherapi.com](https://www.weatherapi.com)
 - Get Current Weather ( With Default City )
 <img src="/Screenshots/CurrentWeatherWithDefaultCity.png" width="200" height="400">
 
-- Delete City 
+- Delete City [Pending Enahnce UIContextualAction]
 <img src="/Screenshots/DeleteCity.png" width="200" height="400">
 
 - Delete City ( Confirmation )
