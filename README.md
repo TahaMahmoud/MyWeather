@@ -13,7 +13,7 @@ Using [weatherapi.com](https://www.weatherapi.com)
 - Kingfisher For Images Downloading and Caching
 - XIB Files
 - CoreLocation For Detecting Current Location
-- CoreData For Caching Prefered Cities 
+- CoreData For Caching Preferred Cities 
 - Adobe XD For Designing The UI
 
 ## Screenshots
