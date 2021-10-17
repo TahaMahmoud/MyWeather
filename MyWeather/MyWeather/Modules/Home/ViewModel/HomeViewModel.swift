@@ -23,6 +23,7 @@ protocol HomeViewModelInput {
     func citiesPressed()
     func settingsPressed()
     
+    func getWeather(latitude: String, longitude: String)
 }
 
 class HomeViewModel: HomeViewModelInput, HomeViewModelOutput {

@@ -69,7 +69,6 @@ class HomeViewController: UIViewController {
 
     func bindCityName() {
         viewModel.weather.subscribe { [weak self] weather in
-            print(weather.element)
             self?.cityNameLabel.text = weather.element?.location?.name?.uppercased() ?? ""
         }.disposed(by: disposeBag)
     }

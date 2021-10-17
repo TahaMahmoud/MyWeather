@@ -56,6 +56,7 @@
 		0485499D27146DF900D0E5D5 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0485499B27146DF900D0E5D5 /* CityTableViewCell.xib */; };
 		048549A22714751100D0E5D5 /* CityCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048549A12714751100D0E5D5 /* CityCellViewModel.swift */; };
 		048549A727147F2A00D0E5D5 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048549A627147F2A00D0E5D5 /* CityModel.swift */; };
+		048E6786271C5D490059141D /* AddCityViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E6785271C5D490059141D /* AddCityViewController+Location.swift */; };
 		04AA56F52716D86C0032CF92 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F22716D86C0032CF92 /* Endpoint.swift */; };
 		04AA56F62716D86C0032CF92 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F32716D86C0032CF92 /* NetworkManager.swift */; };
 		04AA56F72716D86C0032CF92 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA56F42716D86C0032CF92 /* NetworkError.swift */; };
@@ -155,6 +156,7 @@
 		0485499B27146DF900D0E5D5 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		048549A12714751100D0E5D5 /* CityCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCellViewModel.swift; sourceTree = "<group>"; };
 		048549A627147F2A00D0E5D5 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		048E6785271C5D490059141D /* AddCityViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCityViewController+Location.swift"; sourceTree = "<group>"; };
 		04AA56F22716D86C0032CF92 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		04AA56F32716D86C0032CF92 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		04AA56F42716D86C0032CF92 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				04542D572714644E0007349B /* AddCityViewController.xib */,
 				0485499A27146DF900D0E5D5 /* CityTableViewCell.swift */,
 				0485499B27146DF900D0E5D5 /* CityTableViewCell.xib */,
+				048E6785271C5D490059141D /* AddCityViewController+Location.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -864,6 +867,7 @@
 				04540D892701C9A300B34367 /* MyWeather.xcdatamodeld in Sources */,
 				048549A22714751100D0E5D5 /* CityCellViewModel.swift in Sources */,
 				046BB0D32701D2F40007E43A /* UITableView.swift in Sources */,
+				048E6786271C5D490059141D /* AddCityViewController+Location.swift in Sources */,
 				04FA4FDE270C3E7C00606300 /* HomeInteractor+Network.swift in Sources */,
 				0446E733270C8AAF005343D4 /* Date.swift in Sources */,
 				04621D55271C4584000C9D24 /* HomeViewController+Location.swift in Sources */,

@@ -9,15 +9,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 import GSMessages
+import CoreLocation
 
 class AddCityViewController: UIViewController {
     
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
     var viewModel: AddCityViewModel!
 
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var citiesSearchResultTableView: UITableView!
 
+    let locationManager = CLLocationManager()
+    var currentLocation:CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +35,7 @@ class AddCityViewController: UIViewController {
     }
 
     @IBAction func selectCurrentLocationPressed(_ sender: Any) {
-        
+        startLocation()
     }
     
     @IBAction func backToCitiesPressed(_ sender: Any) {
@@ -69,7 +73,7 @@ class AddCityViewController: UIViewController {
         cityNameTextField.rx.text.orEmpty
             .throttle(RxTimeInterval.seconds(2), latest: true, scheduler: MainScheduler.instance)
                 .subscribe(onNext: { text in
-                    self.viewModel.fetchCities(cityName: text)
+                    self.viewModel.fetchCities(cityName: text, latitude: "", longitude: "")
                 }, onDisposed: nil)
             .disposed(by: disposeBag)
     }

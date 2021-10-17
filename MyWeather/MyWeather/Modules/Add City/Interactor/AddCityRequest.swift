@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 enum AddCityRequest: Endpoint {
-    case fetchCities(cityName: String)
+    case fetchCities(location: String)
 
     var headers: HTTPHeaders {
         let headers = defaultHeaders
@@ -27,8 +27,8 @@ enum AddCityRequest: Endpoint {
     var parameters: Parameters? {
         var param = defaultParams
         switch self {
-        case .fetchCities(let cityName):
-            param = ["key": Constants.apiKey, "q": cityName]
+        case .fetchCities(let location):
+            param = ["key": Constants.apiKey, "q": location]
     
         }
         

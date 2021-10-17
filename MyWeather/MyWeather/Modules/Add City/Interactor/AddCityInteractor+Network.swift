@@ -11,7 +11,7 @@ import RxSwift
 protocol AddCityInteractorProtocol: class {
     
     // Network Requests
-    func featchCities(cityName: String) -> Observable<[CityModel]>
+    func featchCities(location: String) -> Observable<[CityModel]>
     // func getWeatherWithLocation(location: String) -> Observable<(HomeModel)>
 
     // CoreData Requests
@@ -31,9 +31,9 @@ class AddCityInteractor: AddCityInteractorProtocol {
         self.coreDataManager = CoreDataManager()
     }
     
-    func featchCities(cityName: String) -> Observable<[CityModel]> {
+    func featchCities(location: String) -> Observable<[CityModel]> {
         return Observable.create {[weak self] (observer) -> Disposable in
-            self?.networkManager.callRequest([CityModel].self, endpoint: AddCityRequest.fetchCities(cityName: cityName)) { (result) in
+            self?.networkManager.callRequest([CityModel].self, endpoint: AddCityRequest.fetchCities(location: location)) { (result) in
                 switch result {
                 case .success(let value):
                     observer.onNext((value))

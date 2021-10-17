@@ -25,8 +25,9 @@ protocol AddCityViewModelInput {
     
     func backToCities()
     
-    func fetchCities(cityName: String)
+    func fetchCities(cityName: String, latitude: String, longitude: String)
     func addCity(cityName: String)
+    
 }
 
 class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
@@ -35,7 +36,7 @@ class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
     
     var successMessage: PublishSubject<String> = .init()
     var errorMessage: PublishSubject<String> = .init()
-
+    
     private let coordinator: AddCityCoordinator
     let disposeBag = DisposeBag()
     
@@ -50,9 +51,18 @@ class AddCityViewModel: AddCityViewModelInput, AddCityViewModelOutput {
         
     }
     
-    func fetchCities(cityName: String) {
+    func fetchCities(cityName: String, latitude: String, longitude: String) {
         
-        addCityInteractor.featchCities(cityName: cityName).subscribe { (response) in
+        var location = ""
+        
+        if cityName != "" {
+            location = cityName
+        }
+        else {
+            location = latitude + "," + longitude
+        }
+        
+        addCityInteractor.featchCities(location: location).subscribe { (response) in
             
             // Remove Old Data
             var array = self.cities.value
