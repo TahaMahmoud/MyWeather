@@ -4,6 +4,12 @@ MyWeather is a simple iOS application, it retrieves Current Weather Data from fr
 
 Using [weatherapi.com](https://www.weatherapi.com)
 
+## Don't Forget To Install Pods
+
+```swift
+pod install
+```
+
 ## Used In The APP
 - SWIFT
 - Alamofire-based Network Layer
