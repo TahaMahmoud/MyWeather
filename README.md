@@ -27,7 +27,9 @@ pod install
 | :-------- | :------- | :-------     | :-------     |
 | <img src="/Screenshots/LaunchScreen.png" width="200" height="400">        | <img src="/Screenshots/OnBoarding1.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding2.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding3.png" width="200" height="400">       |
 
-| Get First-Time Current Location ( If No Default City ) | Get Current Weather ( With Location )     |
+| Get First-Time Current Location 
+( If No Default City ) | Get Current Weather 
+( With Location )     |
 | :-------- | :------- |
 | <img src="/Screenshots/GetLocation.png" width="200" height="400">        | <img src="/Screenshots/CurrentWeatherWithLocation.png" width="200" height="400">       |
 
