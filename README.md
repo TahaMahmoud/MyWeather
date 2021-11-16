@@ -27,23 +27,10 @@ pod install
 | :-------- | :------- | :-------     | :-------     |
 | <img src="/Screenshots/LaunchScreen.png" width="200" height="400">        | <img src="/Screenshots/OnBoarding1.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding2.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding3.png" width="200" height="400">       |
 
-- Launch Screen
-<img src="/Screenshots/LaunchScreen.png" width="200" height="400">
+| Get First-Time Current Location ( If No Default City ) | Get Current Weather ( With Location )     |
+| :-------- | :------- |
+| <img src="/Screenshots/GetLocation.png" width="200" height="400">        | <img src="/Screenshots/CurrentWeatherWithLocation.png" width="200" height="400">       |
 
-- OnBoarding Screen 1
-<img src="/Screenshots/OnBoarding1.png" width="200" height="400">
-
-- OnBoarding Screen 2
-<img src="/Screenshots/OnBoarding2.png" width="200" height="400">
-
-- OnBoarding Screen 3
-<img src="/Screenshots/OnBoarding3.png" width="200" height="400">
-
-- Get First-Time Current Location ( If No Default City )
-<img src="/Screenshots/GetLocation.png" width="200" height="400">
-
-- Get Current Weather ( With Location )
-<img src="/Screenshots/CurrentWeatherWithLocation.png" width="200" height="400">
 
 - Saved Cities
 <img src="/Screenshots/CitiesList.png" width="200" height="400">
