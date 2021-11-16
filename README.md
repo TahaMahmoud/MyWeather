@@ -24,7 +24,7 @@ pod install
 
 ## Screenshots
 | Launch Screen | OnBoarding Screen 1     | OnBoarding Screen 2     | OnBoarding Screen 3     |
-| :-------- | :------- | Type     | Type     |
+| :-------- | :------- | :-------     | :-------     |
 | <img src="/Screenshots/LaunchScreen.png" width="200" height="400">        | <img src="/Screenshots/OnBoarding1.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding2.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding3.png" width="200" height="400">       |
 
 - Launch Screen
