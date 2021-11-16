@@ -27,36 +27,25 @@ pod install
 | :-------- | :------- | :-------     | :-------     |
 | <img src="/Screenshots/LaunchScreen.png" width="200" height="400">        | <img src="/Screenshots/OnBoarding1.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding2.png" width="200" height="400">       | <img src="/Screenshots/OnBoarding3.png" width="200" height="400">       |
 
-| Get First-Time Current Location 
-( If No Default City ) | Get Current Weather 
-( With Location )     |
+| Get First-Time Current Location ( If No Default City ) | Get Current Weather ( With Location )     |
 | :-------- | :------- |
 | <img src="/Screenshots/GetLocation.png" width="200" height="400">        | <img src="/Screenshots/CurrentWeatherWithLocation.png" width="200" height="400">       |
 
+| Saved Cities | Add New City ( Search With City Name )     |
+| :-------- | :------- |
+| <img src="/Screenshots/CitiesList.png" width="200" height="400">        | <img src="/Screenshots/AddCityWithCityName.png" width="200" height="400">       |
 
-- Saved Cities
-<img src="/Screenshots/CitiesList.png" width="200" height="400">
+| Add New City ( Detect Current Location ) | Set Specific City As The Default City [Pending Enahnce UIContextualAction]     |
+| :-------- | :------- |
+| <img src="/Screenshots/AddCityWithLocation.png" width="200" height="400">        | <img src="/Screenshots/SetDefaultCity.png" width="200" height="400">       |
 
-- Add New City ( Search With City Name )
-<img src="/Screenshots/AddCityWithCityName.png" width="200" height="400">
+| Set Specific City As The Default City ( Confirmation ) | Get Current Weather ( With Default City )     |
+| :-------- | :------- |
+| <img src="/Screenshots/SetDefaultCityConfirm.png" width="200" height="400">        | <img src="/Screenshots/CurrentWeatherWithDefaultCity.png" width="200" height="400">       |
 
-- Add New City ( Detect Current Location )
-<img src="/Screenshots/AddCityWithLocation.png" width="200" height="400">
-
-- Set Specific City As The Default City [Pending Enahnce UIContextualAction]
-<img src="/Screenshots/SetDefaultCity.png" width="200" height="400">
-
-- Set Specific City As The Default City ( Confirmation )
-<img src="/Screenshots/SetDefaultCityConfirm.png" width="200" height="400">
-
-- Get Current Weather ( With Default City )
-<img src="/Screenshots/CurrentWeatherWithDefaultCity.png" width="200" height="400">
-
-- Delete City [Pending Enahnce UIContextualAction]
-<img src="/Screenshots/DeleteCity.png" width="200" height="400">
-
-- Delete City ( Confirmation )
-<img src="/Screenshots/DeleteCityConfirm.png" width="200" height="400">
+| Delete City [Pending Enahnce UIContextualAction] | Delete City ( Confirmation )     |
+| :-------- | :------- |
+| <img src="/Screenshots/DeleteCity.png" width="200" height="400">        | <img src="/Screenshots/DeleteCityConfirm.png" width="200" height="400">       |
 
 
 ## App Structure:
